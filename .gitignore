@@ -1,0 +1,28 @@
+# Secrets
+.env
+*.env.local
+
+# Spring profiles con secrets
+backend/src/main/resources/application-local.yaml
+backend/src/main/resources/application-dev.yaml
+
+# SSH keys
+*.key
+*.pem
+
+# Maven
+backend/target/
+backend/.mvn/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

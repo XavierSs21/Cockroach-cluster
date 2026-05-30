@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgersql://localhost:26257/appdb?sslmode=disable
+    username: root
+    password:

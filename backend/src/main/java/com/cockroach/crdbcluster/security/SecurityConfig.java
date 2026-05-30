@@ -41,7 +41,6 @@ public class SecurityConfig {
                         .requestMatchers("/actuator/prometheus").hasRole("MONITOR")
                         .requestMatchers("/api/users/**").hasRole("ADMIN")
                         .requestMatchers("/api/seed/**").hasRole("ADMIN")
-                        .requestMatchers("/api/status").permitAll()
                         .requestMatchers("/api/audit-logs/**").hasRole("ADMIN")
                         .requestMatchers("/api/benchmark/**").hasAnyRole("ADMIN", "MONITOR")
                         .anyRequest().authenticated()

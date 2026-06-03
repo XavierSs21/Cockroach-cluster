@@ -50,4 +50,16 @@ public class TransactionService {
         }
         return transactionRepository.findByAccountId(accountId);
     }
+
+    public TransactionResponseDTO toDTO(Transaction transaction) {
+        return TransactionResponseDTO.builder()
+                .id(transaction.getId())
+                .accountId(transaction.getAccount().getId())
+                .amount(transaction.getAmount())
+                .type(transaction.getType())
+                .status(transaction.getStatus())
+                .description(transaction.getDescription())
+                .createdAt(transaction.getCreatedAt())
+                .build();
+    }
 }

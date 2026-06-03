@@ -59,4 +59,16 @@ public class AccountService {
         account.setStatus(newStatus);
         return accountRepository.save(account);
     }
+
+    public AccountResponseDTO toDTO(Account account) {
+        return AccountResponseDTO.builder()
+                .id(account.getId())
+                .userId(account.getUser().getId())
+                .userName(account.getUser().getName())
+                .balance(account.getBalance())
+                .status(account.getStatus())
+                .createdAt(account.getCreatedAt())
+                .updatedAt(account.getUpdatedAt())
+                .build();
+    }
 }

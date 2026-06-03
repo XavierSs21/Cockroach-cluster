@@ -16,27 +16,30 @@ public class TransactionController {
     private final TransactionService transactionService;
 
     @PostMapping
-    public ResponseEntity<Transaction> createTransaction(@RequestBody TransactionCreateRequest request) {
+    public ResponseEntity<TransactionResponseDTO> createTransaction(@RequestBody TransactionCreateRequest request) {
         Transaction transaction = transactionService.createTransaction(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(transaction);
+        return ResponseEntity.status(HttpStatus.CREATED).body(transactionService.toDTO(transaction));
     }
 
  
     @GetMapping
-    public ResponseEntity<List<Transaction>> getAllTransactions() {
-        List<Transaction> transactions = transactionService.getAllTransactions();
-        return ResponseEntity.ok(transactions);
+    public ResponseEntity<List<TransactionResponseDTO>> getAllTransactions() {
+        return ResponseEntity.ok(transactionService.getAllTransactions()
+                .stream()
+                .map(transactionService::toDTO)
+                .toList());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Transaction> getTransactionById(@PathVariable UUID id) {
-        Transaction transaction = transactionService.getTransactionById(id);
-        return ResponseEntity.ok(transaction);
+    public ResponseEntity<TransactionResponseDTO> getTransactionById(@PathVariable UUID id) {
+        return ResponseEntity.ok(transactionService.toDTO(transactionService.getTransactionById(id)));
     }
 
     @GetMapping("/account/{accountId}/transactions")
-    public ResponseEntity<List<Transaction>> getTransactionsByAccountId(@PathVariable UUID accountId) {
-        List<Transaction> transactions = transactionService.getTransactionsByAccountId(accountId);
-        return ResponseEntity.ok(transactions);
+    public ResponseEntity<List<TransactionResponseDTO>> getTransactionsByAccountId(@PathVariable UUID accountId) {
+        return ResponseEntity.ok(transactionService.getTransactionsByAccountId(accountId)
+                .stream()
+                .map(transactionService::toDTO)
+                .toList());
     }
 }

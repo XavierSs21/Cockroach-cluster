@@ -16,36 +16,39 @@ public class AccountController {
     private final AccountService accountService;
 
     @PostMapping
-    public ResponseEntity<Account> createAccount(@RequestBody AccountCreateRequest request) {
+    public ResponseEntity<AccountResponseDTO> createAccount(@RequestBody AccountCreateRequest request) {
         Account account = accountService.createAccount(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(account);
+        return ResponseEntity.status(HttpStatus.CREATED).body(accountService.toDTO(account));
     }
 
     @GetMapping
-    public ResponseEntity<List<Account>> getAllAccounts() {
-        List<Account> accounts = accountService.getAllAccounts();
-        return ResponseEntity.ok(accounts);
+    public ResponseEntity<List<AccountResponseDTO>> getAllAccounts() {
+        return ResponseEntity.ok(accountService.getAllAccounts()
+                .stream()
+                .map(accountService::toDTO)
+                .toList());
     }
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Account> getAccountById(@PathVariable UUID id) {
-        Account account = accountService.getAccountById(id);
-        return ResponseEntity.ok(account);
+    public ResponseEntity<AccountResponseDTO> getAccountById(@PathVariable UUID id) {
+        return ResponseEntity.ok(accountService.toDTO(accountService.getAccountById(id)));
     }
 
     @GetMapping("/user/{userId}/accounts")
-    public ResponseEntity<List<Account>> getAccountsByUserId(@PathVariable UUID userId) {
-        List<Account> accounts = accountService.getAccountsByUserId(userId);
-        return ResponseEntity.ok(accounts);
+    public ResponseEntity<List<AccountResponseDTO>> getAccountsByUserId(@PathVariable UUID userId) {
+        return ResponseEntity.ok(accountService.getAccountsByUserId(userId)
+                .stream()
+                .map(accountService::toDTO)
+                .toList());
     }
 
  
     @PatchMapping("/{id}/status")
-    public ResponseEntity<Account> updateAccountStatus(
+    public ResponseEntity<AccountResponseDTO> updateAccountStatus(
             @PathVariable UUID id,
             @RequestBody AccountStatusRequest request) {
         Account account = accountService.updateAccountStatus(id, request.getStatus());
-        return ResponseEntity.ok(account);
+        return ResponseEntity.ok(accountService.toDTO(account));
     }
 }

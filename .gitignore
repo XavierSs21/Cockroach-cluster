@@ -22,3 +22,7 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Node
+load-tests/node_modules/
+load-tests/package-lock.json

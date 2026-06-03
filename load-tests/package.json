@@ -1,0 +1,13 @@
+{
+  "name": "load-tests",
+  "type": "module",
+  "scripts": {
+    "read": "node read-test.js",
+    "write": "node write-test.js",
+    "ping": "node db-ping-test.js",
+    "failover": "node failover-test.js"
+  },
+  "dependencies": {
+    "autocannon": "^7.15.0"
+  }
+}

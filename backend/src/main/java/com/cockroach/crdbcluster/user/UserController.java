@@ -17,23 +17,24 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
-        return ResponseEntity.ok(users);
+    public ResponseEntity<List<UserResponseDTO>> getAllUsers() {
+        return ResponseEntity.ok(userService.getAllUsers()
+                .stream()
+                .map(userService::toDTO)
+                .toList());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable UUID id) {
-        User user = userService.getUserById(id);
-        return ResponseEntity.ok(user);
+    public ResponseEntity<UserResponseDTO> getUserById(@PathVariable UUID id) {
+        return ResponseEntity.ok(userService.toDTO(userService.getUserById(id)));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(
+    public ResponseEntity<UserResponseDTO> updateUser(
             @PathVariable UUID id,
             @RequestBody UserUpdateRequest request) {
         User updatedUser = userService.updateUser(id, request);
-        return ResponseEntity.ok(updatedUser);
+        return ResponseEntity.ok(userService.toDTO(updatedUser));
     }
 
 

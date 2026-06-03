@@ -39,7 +39,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/error").permitAll()
                         .requestMatchers("/actuator/health").permitAll()
-                        .requestMatchers("/actuator/prometheus").hasRole("MONITOR")
+                        .requestMatchers("/actuator/prometheus").permitAll()
                         .requestMatchers("/api/users/**").hasRole("ADMIN")
                         .requestMatchers("/api/seed/**").hasRole("ADMIN")
                         .requestMatchers("/api/status").permitAll()

@@ -44,6 +44,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/seed/**").hasRole("ADMIN")
                         .requestMatchers("/api/status").permitAll()
                         .requestMatchers("/api/audit-logs/**").hasRole("ADMIN")
+                        .requestMatchers("/api/transactions/**").hasAnyRole("ADMIN", "USER")
                         .requestMatchers("/api/benchmark/**").hasAnyRole("ADMIN", "MONITOR")
                         .anyRequest().authenticated()
                 )

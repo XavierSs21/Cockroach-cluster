@@ -15,15 +15,19 @@ public class AuditLogController {
     private final AuditLogService auditLogService;
 
     @GetMapping
-    public ResponseEntity<List<AuditLog>> getAllAuditLogs() {
-        List<AuditLog> auditLogs = auditLogService.getAllAuditLogs();
-        return ResponseEntity.ok(auditLogs);
+    public ResponseEntity<List<AuditLogResponseDTO>> getAllAuditLogs() {
+        return ResponseEntity.ok(auditLogService.getAllAuditLogs()
+                .stream()
+                .map(auditLogService::toDTO)
+                .toList());
     }
 
    
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<AuditLog>> getAuditLogsByUserId(@PathVariable UUID userId) {
-        List<AuditLog> auditLogs = auditLogService.getAuditLogsByUserId(userId);
-        return ResponseEntity.ok(auditLogs);
+    public ResponseEntity<List<AuditLogResponseDTO>> getAuditLogsByUserId(@PathVariable UUID userId) {
+        return ResponseEntity.ok(auditLogService.getAuditLogsByUserId(userId)
+                .stream()
+                .map(auditLogService::toDTO)
+                .toList());
     }
 }

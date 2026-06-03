@@ -34,4 +34,17 @@ public class AuditLogService {
     public AuditLog createAuditLog(AuditLog auditLog) {
         return auditLogRepository.save(auditLog);
     }
+
+    public AuditLogResponseDTO toDTO(AuditLog auditLog) {
+        String userName = auditLog.getUser() != null ? auditLog.getUser().getName() : "ANONYMOUS";
+        return AuditLogResponseDTO.builder()
+                .id(auditLog.getId())
+                .userId(auditLog.getUser() != null ? auditLog.getUser().getId() : null)
+                .userName(userName)
+                .action(auditLog.getAction())
+                .endpoint(auditLog.getEndpoint())
+                .ipAddress(auditLog.getIpAddress())
+                .createdAt(auditLog.getCreatedAt())
+                .build();
+    }
 }

@@ -1,0 +1,58 @@
+#!/bin/bash
+# scripts/install-cockroachdb.sh
+# Instalacion de CockroachDB v23.2.0 en Ubuntu 22.04 ARM64
+# Ejecutar en cada nodo: crdb-node-1, crdb-node-2, crdb-node-3
+
+set -e
+
+CRDB_VERSION="v23.2.0"
+CRDB_ARCH="linux-arm64"  # VMs son A1.Flex ARM en OCI
+
+echo "[1/5] Descargando CockroachDB $CRDB_VERSION..."
+wget -q "https://binaries.cockroachdb.com/cockroach-${CRDB_VERSION}.${CRDB_ARCH}.tgz"
+
+echo "[2/5] Extrayendo e instalando binario..."
+tar -xf "cockroach-${CRDB_VERSION}.${CRDB_ARCH}.tgz"
+sudo cp "cockroach-${CRDB_VERSION}.${CRDB_ARCH}/cockroach" /usr/local/bin/
+sudo chmod +x /usr/local/bin/cockroach
+
+echo "[3/5] Creando directorios de datos..."
+sudo mkdir -p /var/lib/cockroach
+sudo chown ubuntu:ubuntu /var/lib/cockroach
+
+echo "[4/5] Creando servicio systemd..."
+# Reemplazar NODE_IP con la IP privada del nodo actual
+# y JOIN_IPS con las IPs de los otros dos nodos
+NODE_IP="${1:-10.0.1.180}"
+JOIN_IPS="10.0.1.180,10.0.1.160,10.0.1.211"
+
+sudo tee /etc/systemd/system/cockroach.service > /dev/null <<EOF
+[Unit]
+Description=CockroachDB Node
+After=network.target
+
+[Service]
+Type=notify
+User=ubuntu
+ExecStart=/usr/local/bin/cockroach start \
+  --insecure \
+  --listen-addr=${NODE_IP}:26257 \
+  --http-addr=${NODE_IP}:8080 \
+  --join=${JOIN_IPS} \
+  --store=/var/lib/cockroach \
+  --cache=.25 \
+  --max-sql-memory=.25
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+echo "[5/5] Habilitando e iniciando servicio..."
+sudo systemctl daemon-reload
+sudo systemctl enable cockroach
+sudo systemctl start cockroach
+
+echo "Instalacion completada en $NODE_IP"
+echo "Verifica con: sudo systemctl status cockroach"

@@ -1,0 +1,1 @@
+{"nodes": [{"id": "userupdaterequest_userupdaterequest", "label": "UserUpdateRequest", "file_type": "code", "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserUpdateRequest.java", "source_location": "13", "source_url": null, "captured_at": null, "author": null, "contributor": null}], "edges": [], "hyperedges": []}

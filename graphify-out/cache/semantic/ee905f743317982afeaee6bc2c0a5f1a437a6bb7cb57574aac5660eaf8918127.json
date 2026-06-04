@@ -1,0 +1,1 @@
+{"nodes": [{"id": "securityexceptionhandler_securityexceptionhandler", "label": "SecurityExceptionHandler", "file_type": "code", "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/SecurityExceptionHandler.java", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null}], "edges": [], "hyperedges": []}

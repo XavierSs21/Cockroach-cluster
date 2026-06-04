@@ -1,0 +1,5207 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "audit_mvc_layer",
+        "label": "Audit Log MVC Triad",
+        "nodes": [
+          "auditlogcontroller_auditlogcontroller",
+          "auditlogservice_auditlogservice",
+          "auditlogrepository_auditlogrepository"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit"
+      },
+      {
+        "id": "account_mvc_layer",
+        "label": "Account MVC Triad",
+        "nodes": [
+          "accountcontroller_accountcontroller",
+          "accountservice_accountservice",
+          "accountrepository_accountrepository"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account"
+      },
+      {
+        "id": "user_mvc_layer",
+        "label": "User MVC Triad",
+        "nodes": [
+          "usercontroller_usercontroller",
+          "userservice_userservice",
+          "userrepository_userrepository"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user"
+      },
+      {
+        "id": "jwt_auth_pipeline",
+        "label": "JWT Authentication Pipeline",
+        "nodes": [
+          "jwtauthenticationfilter_jwtauthenticationfilter",
+          "jwtservice_jwtservice",
+          "customuserdetailsservice_customuserdetailsservice"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/JwtAuthenticationFilter.java"
+      },
+      {
+        "id": "security_filter_chain",
+        "label": "Security Filter Chain Configuration",
+        "nodes": [
+          "securityconfig_securityconfig",
+          "jwtauthenticationfilter_jwtauthenticationfilter",
+          "ratelimitfilter_ratelimitfilter",
+          "securityexceptionhandler_securityexceptionhandler"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/SecurityConfig.java"
+      },
+      {
+        "id": "auth_flow",
+        "label": "Authentication Flow (Register/Login)",
+        "nodes": [
+          "authcontroller_authcontroller",
+          "authservice_authservice",
+          "jwtservice_jwtservice"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthService.java"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "CrdbclusterApplication.java",
+      "file_type": "code",
+      "source_file": "CrdbclusterApplication.java",
+      "source_location": "L1",
+      "id": "crdbclusterapplication_java",
+      "community": 16,
+      "norm_label": "crdbclusterapplication.java"
+    },
+    {
+      "label": "CrdbclusterApplication",
+      "file_type": "code",
+      "source_file": "CrdbclusterApplication.java",
+      "source_location": "L6",
+      "id": "crdbcluster_crdbclusterapplication_crdbclusterapplication",
+      "community": 16,
+      "norm_label": "crdbclusterapplication"
+    },
+    {
+      "label": ".main()",
+      "file_type": "code",
+      "source_file": "CrdbclusterApplication.java",
+      "source_location": "L9",
+      "id": "crdbcluster_crdbclusterapplication_crdbclusterapplication_main",
+      "community": 16,
+      "norm_label": ".main()"
+    },
+    {
+      "label": "AuditLogService.java",
+      "file_type": "code",
+      "source_file": "audit/AuditLogService.java",
+      "source_location": "L1",
+      "id": "audit_auditlogservice_java",
+      "community": 11,
+      "norm_label": "auditlogservice.java"
+    },
+    {
+      "label": "AuditLogService",
+      "file_type": "code",
+      "source_file": "audit/AuditLogService.java",
+      "source_location": "L10",
+      "id": "audit_auditlogservice_auditlogservice",
+      "community": 11,
+      "norm_label": "auditlogservice"
+    },
+    {
+      "label": ".getAllAuditLogs()",
+      "file_type": "code",
+      "source_file": "audit/AuditLogService.java",
+      "source_location": "L20",
+      "id": "audit_auditlogservice_auditlogservice_getallauditlogs",
+      "community": 11,
+      "norm_label": ".getallauditlogs()"
+    },
+    {
+      "label": ".getAuditLogsByUserId()",
+      "file_type": "code",
+      "source_file": "audit/AuditLogService.java",
+      "source_location": "L27",
+      "id": "audit_auditlogservice_auditlogservice_getauditlogsbyuserid",
+      "community": 11,
+      "norm_label": ".getauditlogsbyuserid()"
+    },
+    {
+      "label": ".createAuditLog()",
+      "file_type": "code",
+      "source_file": "audit/AuditLogService.java",
+      "source_location": "L34",
+      "id": "audit_auditlogservice_auditlogservice_createauditlog",
+      "community": 11,
+      "norm_label": ".createauditlog()"
+    },
+    {
+      "label": ".toDTO()",
+      "file_type": "code",
+      "source_file": "audit/AuditLogService.java",
+      "source_location": "L38",
+      "id": "audit_auditlogservice_auditlogservice_todto",
+      "community": 11,
+      "norm_label": ".todto()"
+    },
+    {
+      "label": "AuditLogResponseDTO.java",
+      "file_type": "code",
+      "source_file": "audit/AuditLogResponseDTO.java",
+      "source_location": "L1",
+      "id": "audit_auditlogresponsedto_java",
+      "community": 21,
+      "norm_label": "auditlogresponsedto.java"
+    },
+    {
+      "label": "AuditLogResponseDTO",
+      "file_type": "code",
+      "source_file": "audit/AuditLogResponseDTO.java",
+      "source_location": "L9",
+      "id": "audit_auditlogresponsedto_auditlogresponsedto",
+      "community": 21,
+      "norm_label": "auditlogresponsedto"
+    },
+    {
+      "label": "AuditLog.java",
+      "file_type": "code",
+      "source_file": "audit/AuditLog.java",
+      "source_location": "L1",
+      "id": "audit_auditlog_java",
+      "community": 17,
+      "norm_label": "auditlog.java"
+    },
+    {
+      "label": "AuditLog",
+      "file_type": "code",
+      "source_file": "audit/AuditLog.java",
+      "source_location": "L10",
+      "id": "audit_auditlog_auditlog",
+      "community": 17,
+      "norm_label": "auditlog"
+    },
+    {
+      "label": ".prePersist()",
+      "file_type": "code",
+      "source_file": "audit/AuditLog.java",
+      "source_location": "L39",
+      "id": "audit_auditlog_auditlog_prepersist",
+      "community": 17,
+      "norm_label": ".prepersist()"
+    },
+    {
+      "label": "AuditLogController.java",
+      "file_type": "code",
+      "source_file": "audit/AuditLogController.java",
+      "source_location": "L1",
+      "id": "audit_auditlogcontroller_java",
+      "community": 15,
+      "norm_label": "auditlogcontroller.java"
+    },
+    {
+      "label": "AuditLogController",
+      "file_type": "code",
+      "source_file": "audit/AuditLogController.java",
+      "source_location": "L10",
+      "id": "audit_auditlogcontroller_auditlogcontroller",
+      "community": 15,
+      "norm_label": "auditlogcontroller"
+    },
+    {
+      "label": ".getAllAuditLogs()",
+      "file_type": "code",
+      "source_file": "audit/AuditLogController.java",
+      "source_location": "L17",
+      "id": "audit_auditlogcontroller_auditlogcontroller_getallauditlogs",
+      "community": 15,
+      "norm_label": ".getallauditlogs()"
+    },
+    {
+      "label": ".getAuditLogsByUserId()",
+      "file_type": "code",
+      "source_file": "audit/AuditLogController.java",
+      "source_location": "L26",
+      "id": "audit_auditlogcontroller_auditlogcontroller_getauditlogsbyuserid",
+      "community": 15,
+      "norm_label": ".getauditlogsbyuserid()"
+    },
+    {
+      "label": "AuditLogRepository.java",
+      "file_type": "code",
+      "source_file": "audit/AuditLogRepository.java",
+      "source_location": "L1",
+      "id": "audit_auditlogrepository_java",
+      "community": 18,
+      "norm_label": "auditlogrepository.java"
+    },
+    {
+      "label": "AuditLogRepository",
+      "file_type": "code",
+      "source_file": "audit/AuditLogRepository.java",
+      "source_location": "L9",
+      "id": "audit_auditlogrepository_auditlogrepository",
+      "community": 18,
+      "norm_label": "auditlogrepository"
+    },
+    {
+      "label": ".findByUserId()",
+      "file_type": "code",
+      "source_file": "audit/AuditLogRepository.java",
+      "source_location": "L11",
+      "id": "audit_auditlogrepository_auditlogrepository_findbyuserid",
+      "community": 18,
+      "norm_label": ".findbyuserid()"
+    },
+    {
+      "label": "SeedController.java",
+      "file_type": "code",
+      "source_file": "seed/SeedController.java",
+      "source_location": "L1",
+      "id": "seed_seedcontroller_java",
+      "community": 1,
+      "norm_label": "seedcontroller.java"
+    },
+    {
+      "label": "SeedController",
+      "file_type": "code",
+      "source_file": "seed/SeedController.java",
+      "source_location": "L8",
+      "id": "seed_seedcontroller_seedcontroller",
+      "community": 1,
+      "norm_label": "seedcontroller"
+    },
+    {
+      "label": ".seedUsers()",
+      "file_type": "code",
+      "source_file": "seed/SeedController.java",
+      "source_location": "L16",
+      "id": "seed_seedcontroller_seedcontroller_seedusers",
+      "community": 1,
+      "norm_label": ".seedusers()"
+    },
+    {
+      "label": ".seedAccounts()",
+      "file_type": "code",
+      "source_file": "seed/SeedController.java",
+      "source_location": "L30",
+      "id": "seed_seedcontroller_seedcontroller_seedaccounts",
+      "community": 1,
+      "norm_label": ".seedaccounts()"
+    },
+    {
+      "label": ".seedTransactions()",
+      "file_type": "code",
+      "source_file": "seed/SeedController.java",
+      "source_location": "L53",
+      "id": "seed_seedcontroller_seedcontroller_seedtransactions",
+      "community": 1,
+      "norm_label": ".seedtransactions()"
+    },
+    {
+      "label": ".cleanAll()",
+      "file_type": "code",
+      "source_file": "seed/SeedController.java",
+      "source_location": "L78",
+      "id": "seed_seedcontroller_seedcontroller_cleanall",
+      "community": 1,
+      "norm_label": ".cleanall()"
+    },
+    {
+      "label": "SeedResponse.java",
+      "file_type": "code",
+      "source_file": "seed/SeedResponse.java",
+      "source_location": "L1",
+      "id": "seed_seedresponse_java",
+      "community": 22,
+      "norm_label": "seedresponse.java"
+    },
+    {
+      "label": "SeedResponse",
+      "file_type": "code",
+      "source_file": "seed/SeedResponse.java",
+      "source_location": "L9",
+      "id": "seed_seedresponse_seedresponse",
+      "community": 22,
+      "norm_label": "seedresponse"
+    },
+    {
+      "label": "SeedService.java",
+      "file_type": "code",
+      "source_file": "seed/SeedService.java",
+      "source_location": "L1",
+      "id": "seed_seedservice_java",
+      "community": 1,
+      "norm_label": "seedservice.java"
+    },
+    {
+      "label": "SeedService",
+      "file_type": "code",
+      "source_file": "seed/SeedService.java",
+      "source_location": "L21",
+      "id": "seed_seedservice_seedservice",
+      "community": 1,
+      "norm_label": "seedservice"
+    },
+    {
+      "label": ".seedUsers()",
+      "file_type": "code",
+      "source_file": "seed/SeedService.java",
+      "source_location": "L35",
+      "id": "seed_seedservice_seedservice_seedusers",
+      "community": 1,
+      "norm_label": ".seedusers()"
+    },
+    {
+      "label": ".seedAccounts()",
+      "file_type": "code",
+      "source_file": "seed/SeedService.java",
+      "source_location": "L65",
+      "id": "seed_seedservice_seedservice_seedaccounts",
+      "community": 1,
+      "norm_label": ".seedaccounts()"
+    },
+    {
+      "label": ".seedTransactions()",
+      "file_type": "code",
+      "source_file": "seed/SeedService.java",
+      "source_location": "L101",
+      "id": "seed_seedservice_seedservice_seedtransactions",
+      "community": 1,
+      "norm_label": ".seedtransactions()"
+    },
+    {
+      "label": ".cleanAll()",
+      "file_type": "code",
+      "source_file": "seed/SeedService.java",
+      "source_location": "L141",
+      "id": "seed_seedservice_seedservice_cleanall",
+      "community": 1,
+      "norm_label": ".cleanall()"
+    },
+    {
+      "label": "AccountService.java",
+      "file_type": "code",
+      "source_file": "account/AccountService.java",
+      "source_location": "L1",
+      "id": "account_accountservice_java",
+      "community": 8,
+      "norm_label": "accountservice.java"
+    },
+    {
+      "label": "AccountService",
+      "file_type": "code",
+      "source_file": "account/AccountService.java",
+      "source_location": "L12",
+      "id": "account_accountservice_accountservice",
+      "community": 8,
+      "norm_label": "accountservice"
+    },
+    {
+      "label": ".createAccount()",
+      "file_type": "code",
+      "source_file": "account/AccountService.java",
+      "source_location": "L23",
+      "id": "account_accountservice_accountservice_createaccount",
+      "community": 8,
+      "norm_label": ".createaccount()"
+    },
+    {
+      "label": ".getAllAccounts()",
+      "file_type": "code",
+      "source_file": "account/AccountService.java",
+      "source_location": "L39",
+      "id": "account_accountservice_accountservice_getallaccounts",
+      "community": 8,
+      "norm_label": ".getallaccounts()"
+    },
+    {
+      "label": ".getAccountById()",
+      "file_type": "code",
+      "source_file": "account/AccountService.java",
+      "source_location": "L43",
+      "id": "account_accountservice_accountservice_getaccountbyid",
+      "community": 8,
+      "norm_label": ".getaccountbyid()"
+    },
+    {
+      "label": ".getAccountsByUserId()",
+      "file_type": "code",
+      "source_file": "account/AccountService.java",
+      "source_location": "L49",
+      "id": "account_accountservice_accountservice_getaccountsbyuserid",
+      "community": 8,
+      "norm_label": ".getaccountsbyuserid()"
+    },
+    {
+      "label": ".updateAccountStatus()",
+      "file_type": "code",
+      "source_file": "account/AccountService.java",
+      "source_location": "L57",
+      "id": "account_accountservice_accountservice_updateaccountstatus",
+      "community": 8,
+      "norm_label": ".updateaccountstatus()"
+    },
+    {
+      "label": ".toDTO()",
+      "file_type": "code",
+      "source_file": "account/AccountService.java",
+      "source_location": "L63",
+      "id": "account_accountservice_accountservice_todto",
+      "community": 8,
+      "norm_label": ".todto()"
+    },
+    {
+      "label": "AccountRepository.java",
+      "file_type": "code",
+      "source_file": "account/AccountRepository.java",
+      "source_location": "L1",
+      "id": "account_accountrepository_java",
+      "community": 19,
+      "norm_label": "accountrepository.java"
+    },
+    {
+      "label": "AccountRepository",
+      "file_type": "code",
+      "source_file": "account/AccountRepository.java",
+      "source_location": "L9",
+      "id": "account_accountrepository_accountrepository",
+      "community": 19,
+      "norm_label": "accountrepository"
+    },
+    {
+      "label": ".findByUserId()",
+      "file_type": "code",
+      "source_file": "account/AccountRepository.java",
+      "source_location": "L11",
+      "id": "account_accountrepository_accountrepository_findbyuserid",
+      "community": 19,
+      "norm_label": ".findbyuserid()"
+    },
+    {
+      "label": "AccountController.java",
+      "file_type": "code",
+      "source_file": "account/AccountController.java",
+      "source_location": "L1",
+      "id": "account_accountcontroller_java",
+      "community": 9,
+      "norm_label": "accountcontroller.java"
+    },
+    {
+      "label": "AccountController",
+      "file_type": "code",
+      "source_file": "account/AccountController.java",
+      "source_location": "L11",
+      "id": "account_accountcontroller_accountcontroller",
+      "community": 9,
+      "norm_label": "accountcontroller"
+    },
+    {
+      "label": ".createAccount()",
+      "file_type": "code",
+      "source_file": "account/AccountController.java",
+      "source_location": "L18",
+      "id": "account_accountcontroller_accountcontroller_createaccount",
+      "community": 9,
+      "norm_label": ".createaccount()"
+    },
+    {
+      "label": ".getAllAccounts()",
+      "file_type": "code",
+      "source_file": "account/AccountController.java",
+      "source_location": "L24",
+      "id": "account_accountcontroller_accountcontroller_getallaccounts",
+      "community": 9,
+      "norm_label": ".getallaccounts()"
+    },
+    {
+      "label": ".getAccountById()",
+      "file_type": "code",
+      "source_file": "account/AccountController.java",
+      "source_location": "L33",
+      "id": "account_accountcontroller_accountcontroller_getaccountbyid",
+      "community": 9,
+      "norm_label": ".getaccountbyid()"
+    },
+    {
+      "label": ".getAccountsByUserId()",
+      "file_type": "code",
+      "source_file": "account/AccountController.java",
+      "source_location": "L38",
+      "id": "account_accountcontroller_accountcontroller_getaccountsbyuserid",
+      "community": 9,
+      "norm_label": ".getaccountsbyuserid()"
+    },
+    {
+      "label": ".updateAccountStatus()",
+      "file_type": "code",
+      "source_file": "account/AccountController.java",
+      "source_location": "L47",
+      "id": "account_accountcontroller_accountcontroller_updateaccountstatus",
+      "community": 9,
+      "norm_label": ".updateaccountstatus()"
+    },
+    {
+      "label": "AccountStatusRequest.java",
+      "file_type": "code",
+      "source_file": "account/AccountStatusRequest.java",
+      "source_location": "L1",
+      "id": "account_accountstatusrequest_java",
+      "community": 23,
+      "norm_label": "accountstatusrequest.java"
+    },
+    {
+      "label": "AccountStatusRequest",
+      "file_type": "code",
+      "source_file": "account/AccountStatusRequest.java",
+      "source_location": "L8",
+      "id": "account_accountstatusrequest_accountstatusrequest",
+      "community": 23,
+      "norm_label": "accountstatusrequest"
+    },
+    {
+      "label": "AccountCreateRequest.java",
+      "file_type": "code",
+      "source_file": "account/AccountCreateRequest.java",
+      "source_location": "L1",
+      "id": "account_accountcreaterequest_java",
+      "community": 24,
+      "norm_label": "accountcreaterequest.java"
+    },
+    {
+      "label": "AccountCreateRequest",
+      "file_type": "code",
+      "source_file": "account/AccountCreateRequest.java",
+      "source_location": "L11",
+      "id": "account_accountcreaterequest_accountcreaterequest",
+      "community": 24,
+      "norm_label": "accountcreaterequest"
+    },
+    {
+      "label": "AccountResponseDTO.java",
+      "file_type": "code",
+      "source_file": "account/AccountResponseDTO.java",
+      "source_location": "L1",
+      "id": "account_accountresponsedto_java",
+      "community": 25,
+      "norm_label": "accountresponsedto.java"
+    },
+    {
+      "label": "AccountResponseDTO",
+      "file_type": "code",
+      "source_file": "account/AccountResponseDTO.java",
+      "source_location": "L10",
+      "id": "account_accountresponsedto_accountresponsedto",
+      "community": 25,
+      "norm_label": "accountresponsedto"
+    },
+    {
+      "label": "Account.java",
+      "file_type": "code",
+      "source_file": "account/Account.java",
+      "source_location": "L1",
+      "id": "account_account_java",
+      "community": 1,
+      "norm_label": "account.java"
+    },
+    {
+      "label": "Account",
+      "file_type": "code",
+      "source_file": "account/Account.java",
+      "source_location": "L11",
+      "id": "account_account_account",
+      "community": 1,
+      "norm_label": "account"
+    },
+    {
+      "label": ".prePersist()",
+      "file_type": "code",
+      "source_file": "account/Account.java",
+      "source_location": "L40",
+      "id": "account_account_account_prepersist",
+      "community": 1,
+      "norm_label": ".prepersist()"
+    },
+    {
+      "label": ".preUpdate()",
+      "file_type": "code",
+      "source_file": "account/Account.java",
+      "source_location": "L47",
+      "id": "account_account_account_preupdate",
+      "community": 1,
+      "norm_label": ".preupdate()"
+    },
+    {
+      "label": "UserService.java",
+      "file_type": "code",
+      "source_file": "user/UserService.java",
+      "source_location": "L1",
+      "id": "user_userservice_java",
+      "community": 10,
+      "norm_label": "userservice.java"
+    },
+    {
+      "label": "UserService",
+      "file_type": "code",
+      "source_file": "user/UserService.java",
+      "source_location": "L11",
+      "id": "user_userservice_userservice",
+      "community": 10,
+      "norm_label": "userservice"
+    },
+    {
+      "label": ".getAllUsers()",
+      "file_type": "code",
+      "source_file": "user/UserService.java",
+      "source_location": "L18",
+      "id": "user_userservice_userservice_getallusers",
+      "community": 10,
+      "norm_label": ".getallusers()"
+    },
+    {
+      "label": ".getUserById()",
+      "file_type": "code",
+      "source_file": "user/UserService.java",
+      "source_location": "L22",
+      "id": "user_userservice_userservice_getuserbyid",
+      "community": 10,
+      "norm_label": ".getuserbyid()"
+    },
+    {
+      "label": ".updateUser()",
+      "file_type": "code",
+      "source_file": "user/UserService.java",
+      "source_location": "L27",
+      "id": "user_userservice_userservice_updateuser",
+      "community": 10,
+      "norm_label": ".updateuser()"
+    },
+    {
+      "label": ".deleteUser()",
+      "file_type": "code",
+      "source_file": "user/UserService.java",
+      "source_location": "L41",
+      "id": "user_userservice_userservice_deleteuser",
+      "community": 10,
+      "norm_label": ".deleteuser()"
+    },
+    {
+      "label": ".toDTO()",
+      "file_type": "code",
+      "source_file": "user/UserService.java",
+      "source_location": "L48",
+      "id": "user_userservice_userservice_todto",
+      "community": 10,
+      "norm_label": ".todto()"
+    },
+    {
+      "label": "UserResponseDTO.java",
+      "file_type": "code",
+      "source_file": "user/UserResponseDTO.java",
+      "source_location": "L1",
+      "id": "user_userresponsedto_java",
+      "community": 26,
+      "norm_label": "userresponsedto.java"
+    },
+    {
+      "label": "UserResponseDTO",
+      "file_type": "code",
+      "source_file": "user/UserResponseDTO.java",
+      "source_location": "L10",
+      "id": "user_userresponsedto_userresponsedto",
+      "community": 26,
+      "norm_label": "userresponsedto"
+    },
+    {
+      "label": "UserRepository.java",
+      "file_type": "code",
+      "source_file": "user/UserRepository.java",
+      "source_location": "L1",
+      "id": "user_userrepository_java",
+      "community": 0,
+      "norm_label": "userrepository.java"
+    },
+    {
+      "label": "UserRepository",
+      "file_type": "code",
+      "source_file": "user/UserRepository.java",
+      "source_location": "L9",
+      "id": "user_userrepository_userrepository",
+      "community": 0,
+      "norm_label": "userrepository"
+    },
+    {
+      "label": ".findByEmail()",
+      "file_type": "code",
+      "source_file": "user/UserRepository.java",
+      "source_location": "L11",
+      "id": "user_userrepository_userrepository_findbyemail",
+      "community": 0,
+      "norm_label": ".findbyemail()"
+    },
+    {
+      "label": ".existsByEmail()",
+      "file_type": "code",
+      "source_file": "user/UserRepository.java",
+      "source_location": "L12",
+      "id": "user_userrepository_userrepository_existsbyemail",
+      "community": 0,
+      "norm_label": ".existsbyemail()"
+    },
+    {
+      "label": "User.java",
+      "file_type": "code",
+      "source_file": "user/User.java",
+      "source_location": "L1",
+      "id": "user_user_java",
+      "community": 0,
+      "norm_label": "user.java"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "user/User.java",
+      "source_location": "L15",
+      "id": "user_user_user",
+      "community": 0,
+      "norm_label": "user"
+    },
+    {
+      "label": "UserDetails",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "userdetails",
+      "community": 0,
+      "norm_label": "userdetails"
+    },
+    {
+      "label": ".prePersist()",
+      "file_type": "code",
+      "source_file": "user/User.java",
+      "source_location": "L51",
+      "id": "user_user_user_prepersist",
+      "community": 0,
+      "norm_label": ".prepersist()"
+    },
+    {
+      "label": ".preUpdate()",
+      "file_type": "code",
+      "source_file": "user/User.java",
+      "source_location": "L58",
+      "id": "user_user_user_preupdate",
+      "community": 0,
+      "norm_label": ".preupdate()"
+    },
+    {
+      "label": ".getAuthorities()",
+      "file_type": "code",
+      "source_file": "user/User.java",
+      "source_location": "L63",
+      "id": "user_user_user_getauthorities",
+      "community": 0,
+      "norm_label": ".getauthorities()"
+    },
+    {
+      "label": ".getPassword()",
+      "file_type": "code",
+      "source_file": "user/User.java",
+      "source_location": "L68",
+      "id": "user_user_user_getpassword",
+      "community": 0,
+      "norm_label": ".getpassword()"
+    },
+    {
+      "label": ".getUsername()",
+      "file_type": "code",
+      "source_file": "user/User.java",
+      "source_location": "L73",
+      "id": "user_user_user_getusername",
+      "community": 0,
+      "norm_label": ".getusername()"
+    },
+    {
+      "label": ".isAccountNonExpired()",
+      "file_type": "code",
+      "source_file": "user/User.java",
+      "source_location": "L78",
+      "id": "user_user_user_isaccountnonexpired",
+      "community": 0,
+      "norm_label": ".isaccountnonexpired()"
+    },
+    {
+      "label": ".isAccountNonLocked()",
+      "file_type": "code",
+      "source_file": "user/User.java",
+      "source_location": "L81",
+      "id": "user_user_user_isaccountnonlocked",
+      "community": 0,
+      "norm_label": ".isaccountnonlocked()"
+    },
+    {
+      "label": ".isCredentialsNonExpired()",
+      "file_type": "code",
+      "source_file": "user/User.java",
+      "source_location": "L84",
+      "id": "user_user_user_iscredentialsnonexpired",
+      "community": 0,
+      "norm_label": ".iscredentialsnonexpired()"
+    },
+    {
+      "label": ".isEnabled()",
+      "file_type": "code",
+      "source_file": "user/User.java",
+      "source_location": "L87",
+      "id": "user_user_user_isenabled",
+      "community": 0,
+      "norm_label": ".isenabled()"
+    },
+    {
+      "label": "UserController.java",
+      "file_type": "code",
+      "source_file": "user/UserController.java",
+      "source_location": "L1",
+      "id": "user_usercontroller_java",
+      "community": 12,
+      "norm_label": "usercontroller.java"
+    },
+    {
+      "label": "UserController",
+      "file_type": "code",
+      "source_file": "user/UserController.java",
+      "source_location": "L12",
+      "id": "user_usercontroller_usercontroller",
+      "community": 12,
+      "norm_label": "usercontroller"
+    },
+    {
+      "label": ".getAllUsers()",
+      "file_type": "code",
+      "source_file": "user/UserController.java",
+      "source_location": "L19",
+      "id": "user_usercontroller_usercontroller_getallusers",
+      "community": 12,
+      "norm_label": ".getallusers()"
+    },
+    {
+      "label": ".getUserById()",
+      "file_type": "code",
+      "source_file": "user/UserController.java",
+      "source_location": "L27",
+      "id": "user_usercontroller_usercontroller_getuserbyid",
+      "community": 12,
+      "norm_label": ".getuserbyid()"
+    },
+    {
+      "label": ".updateUser()",
+      "file_type": "code",
+      "source_file": "user/UserController.java",
+      "source_location": "L32",
+      "id": "user_usercontroller_usercontroller_updateuser",
+      "community": 12,
+      "norm_label": ".updateuser()"
+    },
+    {
+      "label": ".deleteUser()",
+      "file_type": "code",
+      "source_file": "user/UserController.java",
+      "source_location": "L41",
+      "id": "user_usercontroller_usercontroller_deleteuser",
+      "community": 12,
+      "norm_label": ".deleteuser()"
+    },
+    {
+      "label": "UserUpdateRequest.java",
+      "file_type": "code",
+      "source_file": "user/UserUpdateRequest.java",
+      "source_location": "L1",
+      "id": "user_userupdaterequest_java",
+      "community": 27,
+      "norm_label": "userupdaterequest.java"
+    },
+    {
+      "label": "UserUpdateRequest",
+      "file_type": "code",
+      "source_file": "user/UserUpdateRequest.java",
+      "source_location": "L9",
+      "id": "user_userupdaterequest_userupdaterequest",
+      "community": 27,
+      "norm_label": "userupdaterequest"
+    },
+    {
+      "label": "Role.java",
+      "file_type": "code",
+      "source_file": "security/Role.java",
+      "source_location": "L1",
+      "id": "security_role_java",
+      "community": 34,
+      "norm_label": "role.java"
+    },
+    {
+      "label": "SecurityExceptionHandler.java",
+      "file_type": "code",
+      "source_file": "security/SecurityExceptionHandler.java",
+      "source_location": "L1",
+      "id": "security_securityexceptionhandler_java",
+      "community": 3,
+      "norm_label": "securityexceptionhandler.java"
+    },
+    {
+      "label": "SecurityExceptionHandler",
+      "file_type": "code",
+      "source_file": "security/SecurityExceptionHandler.java",
+      "source_location": "L17",
+      "id": "security_securityexceptionhandler_securityexceptionhandler",
+      "community": 3,
+      "norm_label": "securityexceptionhandler"
+    },
+    {
+      "label": "AuthenticationEntryPoint",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "authenticationentrypoint",
+      "community": 3,
+      "norm_label": "authenticationentrypoint"
+    },
+    {
+      "label": "AccessDeniedHandler",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "accessdeniedhandler",
+      "community": 3,
+      "norm_label": "accessdeniedhandler"
+    },
+    {
+      "label": ".commence()",
+      "file_type": "code",
+      "source_file": "security/SecurityExceptionHandler.java",
+      "source_location": "L22",
+      "id": "security_securityexceptionhandler_securityexceptionhandler_commence",
+      "community": 3,
+      "norm_label": ".commence()"
+    },
+    {
+      "label": ".handle()",
+      "file_type": "code",
+      "source_file": "security/SecurityExceptionHandler.java",
+      "source_location": "L36",
+      "id": "security_securityexceptionhandler_securityexceptionhandler_handle",
+      "community": 3,
+      "norm_label": ".handle()"
+    },
+    {
+      "label": "JwtAuthenticationFilter.java",
+      "file_type": "code",
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L1",
+      "id": "security_jwtauthenticationfilter_java",
+      "community": 4,
+      "norm_label": "jwtauthenticationfilter.java"
+    },
+    {
+      "label": "JwtAuthenticationFilter",
+      "file_type": "code",
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L19",
+      "id": "security_jwtauthenticationfilter_jwtauthenticationfilter",
+      "community": 4,
+      "norm_label": "jwtauthenticationfilter"
+    },
+    {
+      "label": "OncePerRequestFilter",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "onceperrequestfilter",
+      "community": 4,
+      "norm_label": "onceperrequestfilter"
+    },
+    {
+      "label": ".doFilterInternal()",
+      "file_type": "code",
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L27",
+      "id": "security_jwtauthenticationfilter_jwtauthenticationfilter_dofilterinternal",
+      "community": 0,
+      "norm_label": ".dofilterinternal()"
+    },
+    {
+      "label": "RateLimitFilter.java",
+      "file_type": "code",
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L1",
+      "id": "security_ratelimitfilter_java",
+      "community": 4,
+      "norm_label": "ratelimitfilter.java"
+    },
+    {
+      "label": "RateLimitFilter",
+      "file_type": "code",
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L20",
+      "id": "security_ratelimitfilter_ratelimitfilter",
+      "community": 4,
+      "norm_label": "ratelimitfilter"
+    },
+    {
+      "label": ".resolveBucket()",
+      "file_type": "code",
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L27",
+      "id": "security_ratelimitfilter_ratelimitfilter_resolvebucket",
+      "community": 4,
+      "norm_label": ".resolvebucket()"
+    },
+    {
+      "label": ".doFilterInternal()",
+      "file_type": "code",
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L36",
+      "id": "security_ratelimitfilter_ratelimitfilter_dofilterinternal",
+      "community": 4,
+      "norm_label": ".dofilterinternal()"
+    },
+    {
+      "label": ".RateLimitFilter()",
+      "file_type": "code",
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L55",
+      "id": "security_ratelimitfilter_ratelimitfilter_ratelimitfilter",
+      "community": 4,
+      "norm_label": ".ratelimitfilter()"
+    },
+    {
+      "label": "CustomUserDetailsService.java",
+      "file_type": "code",
+      "source_file": "security/CustomUserDetailsService.java",
+      "source_location": "L1",
+      "id": "security_customuserdetailsservice_java",
+      "community": 3,
+      "norm_label": "customuserdetailsservice.java"
+    },
+    {
+      "label": "CustomUserDetailsService",
+      "file_type": "code",
+      "source_file": "security/CustomUserDetailsService.java",
+      "source_location": "L10",
+      "id": "security_customuserdetailsservice_customuserdetailsservice",
+      "community": 3,
+      "norm_label": "customuserdetailsservice"
+    },
+    {
+      "label": "UserDetailsService",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "userdetailsservice",
+      "community": 3,
+      "norm_label": "userdetailsservice"
+    },
+    {
+      "label": ".loadUserByUsername()",
+      "file_type": "code",
+      "source_file": "security/CustomUserDetailsService.java",
+      "source_location": "L16",
+      "id": "security_customuserdetailsservice_customuserdetailsservice_loaduserbyusername",
+      "community": 0,
+      "norm_label": ".loaduserbyusername()"
+    },
+    {
+      "label": "SecurityConfig.java",
+      "file_type": "code",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L1",
+      "id": "security_securityconfig_java",
+      "community": 3,
+      "norm_label": "securityconfig.java"
+    },
+    {
+      "label": "SecurityConfig",
+      "file_type": "code",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L22",
+      "id": "security_securityconfig_securityconfig",
+      "community": 3,
+      "norm_label": "securityconfig"
+    },
+    {
+      "label": ".securityFilterChain()",
+      "file_type": "code",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L33",
+      "id": "security_securityconfig_securityconfig_securityfilterchain",
+      "community": 3,
+      "norm_label": ".securityfilterchain()"
+    },
+    {
+      "label": ".authenticationProvider()",
+      "file_type": "code",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L65",
+      "id": "security_securityconfig_securityconfig_authenticationprovider",
+      "community": 3,
+      "norm_label": ".authenticationprovider()"
+    },
+    {
+      "label": ".authenticationManager()",
+      "file_type": "code",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L72",
+      "id": "security_securityconfig_securityconfig_authenticationmanager",
+      "community": 3,
+      "norm_label": ".authenticationmanager()"
+    },
+    {
+      "label": ".passwordEncoder()",
+      "file_type": "code",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L77",
+      "id": "security_securityconfig_securityconfig_passwordencoder",
+      "community": 3,
+      "norm_label": ".passwordencoder()"
+    },
+    {
+      "label": ".jwtFilterRegistration()",
+      "file_type": "code",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L81",
+      "id": "security_securityconfig_securityconfig_jwtfilterregistration",
+      "community": 3,
+      "norm_label": ".jwtfilterregistration()"
+    },
+    {
+      "label": ".rateLimitFilterRegistration()",
+      "file_type": "code",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L88",
+      "id": "security_securityconfig_securityconfig_ratelimitfilterregistration",
+      "community": 3,
+      "norm_label": ".ratelimitfilterregistration()"
+    },
+    {
+      "label": "JwtService.java",
+      "file_type": "code",
+      "source_file": "security/JwtService.java",
+      "source_location": "L1",
+      "id": "security_jwtservice_java",
+      "community": 0,
+      "norm_label": "jwtservice.java"
+    },
+    {
+      "label": "JwtService",
+      "file_type": "code",
+      "source_file": "security/JwtService.java",
+      "source_location": "L17",
+      "id": "security_jwtservice_jwtservice",
+      "community": 0,
+      "norm_label": "jwtservice"
+    },
+    {
+      "label": ".getSigninKey()",
+      "file_type": "code",
+      "source_file": "security/JwtService.java",
+      "source_location": "L27",
+      "id": "security_jwtservice_jwtservice_getsigninkey",
+      "community": 0,
+      "norm_label": ".getsigninkey()"
+    },
+    {
+      "label": ".generateToken()",
+      "file_type": "code",
+      "source_file": "security/JwtService.java",
+      "source_location": "L31",
+      "id": "security_jwtservice_jwtservice_generatetoken",
+      "community": 0,
+      "norm_label": ".generatetoken()"
+    },
+    {
+      "label": ".extractUserName()",
+      "file_type": "code",
+      "source_file": "security/JwtService.java",
+      "source_location": "L44",
+      "id": "security_jwtservice_jwtservice_extractusername",
+      "community": 0,
+      "norm_label": ".extractusername()"
+    },
+    {
+      "label": ".isTokenValid()",
+      "file_type": "code",
+      "source_file": "security/JwtService.java",
+      "source_location": "L48",
+      "id": "security_jwtservice_jwtservice_istokenvalid",
+      "community": 0,
+      "norm_label": ".istokenvalid()"
+    },
+    {
+      "label": ".isTokenExpired()",
+      "file_type": "code",
+      "source_file": "security/JwtService.java",
+      "source_location": "L53",
+      "id": "security_jwtservice_jwtservice_istokenexpired",
+      "community": 0,
+      "norm_label": ".istokenexpired()"
+    },
+    {
+      "label": ".extractClaim()",
+      "file_type": "code",
+      "source_file": "security/JwtService.java",
+      "source_location": "L57",
+      "id": "security_jwtservice_jwtservice_extractclaim",
+      "community": 0,
+      "norm_label": ".extractclaim()"
+    },
+    {
+      "label": "StatusController.java",
+      "file_type": "code",
+      "source_file": "common/StatusController.java",
+      "source_location": "L1",
+      "id": "common_statuscontroller_java",
+      "community": 1,
+      "norm_label": "statuscontroller.java"
+    },
+    {
+      "label": "StatusController",
+      "file_type": "code",
+      "source_file": "common/StatusController.java",
+      "source_location": "L14",
+      "id": "common_statuscontroller_statuscontroller",
+      "community": 1,
+      "norm_label": "statuscontroller"
+    },
+    {
+      "label": ".status()",
+      "file_type": "code",
+      "source_file": "common/StatusController.java",
+      "source_location": "L21",
+      "id": "common_statuscontroller_statuscontroller_status",
+      "community": 1,
+      "norm_label": ".status()"
+    },
+    {
+      "label": ".databaseStatus()",
+      "file_type": "code",
+      "source_file": "common/StatusController.java",
+      "source_location": "L32",
+      "id": "common_statuscontroller_statuscontroller_databasestatus",
+      "community": 1,
+      "norm_label": ".databasestatus()"
+    },
+    {
+      "label": "TransactionCreateRequest.java",
+      "file_type": "code",
+      "source_file": "transaction/TransactionCreateRequest.java",
+      "source_location": "L1",
+      "id": "transaction_transactioncreaterequest_java",
+      "community": 28,
+      "norm_label": "transactioncreaterequest.java"
+    },
+    {
+      "label": "TransactionCreateRequest",
+      "file_type": "code",
+      "source_file": "transaction/TransactionCreateRequest.java",
+      "source_location": "L11",
+      "id": "transaction_transactioncreaterequest_transactioncreaterequest",
+      "community": 28,
+      "norm_label": "transactioncreaterequest"
+    },
+    {
+      "label": "TransactionService.java",
+      "file_type": "code",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L1",
+      "id": "transaction_transactionservice_java",
+      "community": 7,
+      "norm_label": "transactionservice.java"
+    },
+    {
+      "label": "TransactionService",
+      "file_type": "code",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L12",
+      "id": "transaction_transactionservice_transactionservice",
+      "community": 7,
+      "norm_label": "transactionservice"
+    },
+    {
+      "label": ".createTransaction()",
+      "file_type": "code",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L21",
+      "id": "transaction_transactionservice_transactionservice_createtransaction",
+      "community": 1,
+      "norm_label": ".createtransaction()"
+    },
+    {
+      "label": ".getAllTransactions()",
+      "file_type": "code",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L37",
+      "id": "transaction_transactionservice_transactionservice_getalltransactions",
+      "community": 7,
+      "norm_label": ".getalltransactions()"
+    },
+    {
+      "label": ".getTransactionById()",
+      "file_type": "code",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L42",
+      "id": "transaction_transactionservice_transactionservice_gettransactionbyid",
+      "community": 7,
+      "norm_label": ".gettransactionbyid()"
+    },
+    {
+      "label": ".getTransactionsByAccountId()",
+      "file_type": "code",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L47",
+      "id": "transaction_transactionservice_transactionservice_gettransactionsbyaccountid",
+      "community": 7,
+      "norm_label": ".gettransactionsbyaccountid()"
+    },
+    {
+      "label": ".toDTO()",
+      "file_type": "code",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L54",
+      "id": "transaction_transactionservice_transactionservice_todto",
+      "community": 7,
+      "norm_label": ".todto()"
+    },
+    {
+      "label": "TransactionResponseDTO.java",
+      "file_type": "code",
+      "source_file": "transaction/TransactionResponseDTO.java",
+      "source_location": "L1",
+      "id": "transaction_transactionresponsedto_java",
+      "community": 29,
+      "norm_label": "transactionresponsedto.java"
+    },
+    {
+      "label": "TransactionResponseDTO",
+      "file_type": "code",
+      "source_file": "transaction/TransactionResponseDTO.java",
+      "source_location": "L10",
+      "id": "transaction_transactionresponsedto_transactionresponsedto",
+      "community": 29,
+      "norm_label": "transactionresponsedto"
+    },
+    {
+      "label": "Transaction.java",
+      "file_type": "code",
+      "source_file": "transaction/Transaction.java",
+      "source_location": "L1",
+      "id": "transaction_transaction_java",
+      "community": 20,
+      "norm_label": "transaction.java"
+    },
+    {
+      "label": "Transaction",
+      "file_type": "code",
+      "source_file": "transaction/Transaction.java",
+      "source_location": "L11",
+      "id": "transaction_transaction_transaction",
+      "community": 20,
+      "norm_label": "transaction"
+    },
+    {
+      "label": ".prePersist()",
+      "file_type": "code",
+      "source_file": "transaction/Transaction.java",
+      "source_location": "L43",
+      "id": "transaction_transaction_transaction_prepersist",
+      "community": 20,
+      "norm_label": ".prepersist()"
+    },
+    {
+      "label": "TransactionController.java",
+      "file_type": "code",
+      "source_file": "transaction/TransactionController.java",
+      "source_location": "L1",
+      "id": "transaction_transactioncontroller_java",
+      "community": 1,
+      "norm_label": "transactioncontroller.java"
+    },
+    {
+      "label": "TransactionController",
+      "file_type": "code",
+      "source_file": "transaction/TransactionController.java",
+      "source_location": "L11",
+      "id": "transaction_transactioncontroller_transactioncontroller",
+      "community": 1,
+      "norm_label": "transactioncontroller"
+    },
+    {
+      "label": ".createTransaction()",
+      "file_type": "code",
+      "source_file": "transaction/TransactionController.java",
+      "source_location": "L18",
+      "id": "transaction_transactioncontroller_transactioncontroller_createtransaction",
+      "community": 1,
+      "norm_label": ".createtransaction()"
+    },
+    {
+      "label": ".getAllTransactions()",
+      "file_type": "code",
+      "source_file": "transaction/TransactionController.java",
+      "source_location": "L25",
+      "id": "transaction_transactioncontroller_transactioncontroller_getalltransactions",
+      "community": 1,
+      "norm_label": ".getalltransactions()"
+    },
+    {
+      "label": ".getTransactionById()",
+      "file_type": "code",
+      "source_file": "transaction/TransactionController.java",
+      "source_location": "L33",
+      "id": "transaction_transactioncontroller_transactioncontroller_gettransactionbyid",
+      "community": 1,
+      "norm_label": ".gettransactionbyid()"
+    },
+    {
+      "label": ".getTransactionsByAccountId()",
+      "file_type": "code",
+      "source_file": "transaction/TransactionController.java",
+      "source_location": "L38",
+      "id": "transaction_transactioncontroller_transactioncontroller_gettransactionsbyaccountid",
+      "community": 1,
+      "norm_label": ".gettransactionsbyaccountid()"
+    },
+    {
+      "label": "TransactionRepository.java",
+      "file_type": "code",
+      "source_file": "transaction/TransactionRepository.java",
+      "source_location": "L1",
+      "id": "transaction_transactionrepository_java",
+      "community": 7,
+      "norm_label": "transactionrepository.java"
+    },
+    {
+      "label": "TransactionRepository",
+      "file_type": "code",
+      "source_file": "transaction/TransactionRepository.java",
+      "source_location": "L9",
+      "id": "transaction_transactionrepository_transactionrepository",
+      "community": 7,
+      "norm_label": "transactionrepository"
+    },
+    {
+      "label": ".findByAccountId()",
+      "file_type": "code",
+      "source_file": "transaction/TransactionRepository.java",
+      "source_location": "L11",
+      "id": "transaction_transactionrepository_transactionrepository_findbyaccountid",
+      "community": 7,
+      "norm_label": ".findbyaccountid()"
+    },
+    {
+      "label": "RegisterRequest.java",
+      "file_type": "code",
+      "source_file": "auth/RegisterRequest.java",
+      "source_location": "L1",
+      "id": "auth_registerrequest_java",
+      "community": 30,
+      "norm_label": "registerrequest.java"
+    },
+    {
+      "label": "RegisterRequest",
+      "file_type": "code",
+      "source_file": "auth/RegisterRequest.java",
+      "source_location": "L8",
+      "id": "auth_registerrequest_registerrequest",
+      "community": 30,
+      "norm_label": "registerrequest"
+    },
+    {
+      "label": "AuthController.java",
+      "file_type": "code",
+      "source_file": "auth/AuthController.java",
+      "source_location": "L1",
+      "id": "auth_authcontroller_java",
+      "community": 14,
+      "norm_label": "authcontroller.java"
+    },
+    {
+      "label": "AuthController",
+      "file_type": "code",
+      "source_file": "auth/AuthController.java",
+      "source_location": "L8",
+      "id": "auth_authcontroller_authcontroller",
+      "community": 14,
+      "norm_label": "authcontroller"
+    },
+    {
+      "label": ".register()",
+      "file_type": "code",
+      "source_file": "auth/AuthController.java",
+      "source_location": "L15",
+      "id": "auth_authcontroller_authcontroller_register",
+      "community": 14,
+      "norm_label": ".register()"
+    },
+    {
+      "label": ".login()",
+      "file_type": "code",
+      "source_file": "auth/AuthController.java",
+      "source_location": "L20",
+      "id": "auth_authcontroller_authcontroller_login",
+      "community": 14,
+      "norm_label": ".login()"
+    },
+    {
+      "label": ".me()",
+      "file_type": "code",
+      "source_file": "auth/AuthController.java",
+      "source_location": "L25",
+      "id": "auth_authcontroller_authcontroller_me",
+      "community": 14,
+      "norm_label": ".me()"
+    },
+    {
+      "label": "AuthService.java",
+      "file_type": "code",
+      "source_file": "auth/AuthService.java",
+      "source_location": "L1",
+      "id": "auth_authservice_java",
+      "community": 0,
+      "norm_label": "authservice.java"
+    },
+    {
+      "label": "AuthService",
+      "file_type": "code",
+      "source_file": "auth/AuthService.java",
+      "source_location": "L13",
+      "id": "auth_authservice_authservice",
+      "community": 0,
+      "norm_label": "authservice"
+    },
+    {
+      "label": ".register()",
+      "file_type": "code",
+      "source_file": "auth/AuthService.java",
+      "source_location": "L22",
+      "id": "auth_authservice_authservice_register",
+      "community": 0,
+      "norm_label": ".register()"
+    },
+    {
+      "label": ".login()",
+      "file_type": "code",
+      "source_file": "auth/AuthService.java",
+      "source_location": "L45",
+      "id": "auth_authservice_authservice_login",
+      "community": 0,
+      "norm_label": ".login()"
+    },
+    {
+      "label": "LoginRequest.java",
+      "file_type": "code",
+      "source_file": "auth/LoginRequest.java",
+      "source_location": "L1",
+      "id": "auth_loginrequest_java",
+      "community": 31,
+      "norm_label": "loginrequest.java"
+    },
+    {
+      "label": "LoginRequest",
+      "file_type": "code",
+      "source_file": "auth/LoginRequest.java",
+      "source_location": "L7",
+      "id": "auth_loginrequest_loginrequest",
+      "community": 31,
+      "norm_label": "loginrequest"
+    },
+    {
+      "label": "AuthResponse.java",
+      "file_type": "code",
+      "source_file": "auth/AuthResponse.java",
+      "source_location": "L1",
+      "id": "auth_authresponse_java",
+      "community": 32,
+      "norm_label": "authresponse.java"
+    },
+    {
+      "label": "AuthResponse",
+      "file_type": "code",
+      "source_file": "auth/AuthResponse.java",
+      "source_location": "L8",
+      "id": "auth_authresponse_authresponse",
+      "community": 32,
+      "norm_label": "authresponse"
+    },
+    {
+      "label": "MetricsConfig.java",
+      "file_type": "code",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L1",
+      "id": "config_metricsconfig_java",
+      "community": 6,
+      "norm_label": "metricsconfig.java"
+    },
+    {
+      "label": "MetricsConfig",
+      "file_type": "code",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L9",
+      "id": "config_metricsconfig_metricsconfig",
+      "community": 6,
+      "norm_label": "metricsconfig"
+    },
+    {
+      "label": ".seedUsersCounter()",
+      "file_type": "code",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L11",
+      "id": "config_metricsconfig_metricsconfig_seeduserscounter",
+      "community": 6,
+      "norm_label": ".seeduserscounter()"
+    },
+    {
+      "label": ".seedAccountsCounter()",
+      "file_type": "code",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L18",
+      "id": "config_metricsconfig_metricsconfig_seedaccountscounter",
+      "community": 6,
+      "norm_label": ".seedaccountscounter()"
+    },
+    {
+      "label": ".seedTransactionsCounter()",
+      "file_type": "code",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L25",
+      "id": "config_metricsconfig_metricsconfig_seedtransactionscounter",
+      "community": 6,
+      "norm_label": ".seedtransactionscounter()"
+    },
+    {
+      "label": ".benchmarkReadsCounter()",
+      "file_type": "code",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L32",
+      "id": "config_metricsconfig_metricsconfig_benchmarkreadscounter",
+      "community": 6,
+      "norm_label": ".benchmarkreadscounter()"
+    },
+    {
+      "label": ".benchmarkWritesCounter()",
+      "file_type": "code",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L39",
+      "id": "config_metricsconfig_metricsconfig_benchmarkwritescounter",
+      "community": 6,
+      "norm_label": ".benchmarkwritescounter()"
+    },
+    {
+      "label": ".authFailuresCounter()",
+      "file_type": "code",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L46",
+      "id": "config_metricsconfig_metricsconfig_authfailurescounter",
+      "community": 6,
+      "norm_label": ".authfailurescounter()"
+    },
+    {
+      "label": ".rateLimitHitsCounter()",
+      "file_type": "code",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L53",
+      "id": "config_metricsconfig_metricsconfig_ratelimithitscounter",
+      "community": 6,
+      "norm_label": ".ratelimithitscounter()"
+    },
+    {
+      "label": ".dbLatencyTimer()",
+      "file_type": "code",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L60",
+      "id": "config_metricsconfig_metricsconfig_dblatencytimer",
+      "community": 6,
+      "norm_label": ".dblatencytimer()"
+    },
+    {
+      "label": "BenchmarkController.java",
+      "file_type": "code",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L1",
+      "id": "benchmark_benchmarkcontroller_java",
+      "community": 4,
+      "norm_label": "benchmarkcontroller.java"
+    },
+    {
+      "label": "BenchmarkController",
+      "file_type": "code",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L15",
+      "id": "benchmark_benchmarkcontroller_benchmarkcontroller",
+      "community": 4,
+      "norm_label": "benchmarkcontroller"
+    },
+    {
+      "label": ".read()",
+      "file_type": "code",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L22",
+      "id": "benchmark_benchmarkcontroller_benchmarkcontroller_read",
+      "community": 4,
+      "norm_label": ".read()"
+    },
+    {
+      "label": ".write()",
+      "file_type": "code",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L36",
+      "id": "benchmark_benchmarkcontroller_benchmarkcontroller_write",
+      "community": 4,
+      "norm_label": ".write()"
+    },
+    {
+      "label": ".dbPing()",
+      "file_type": "code",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L53",
+      "id": "benchmark_benchmarkcontroller_benchmarkcontroller_dbping",
+      "community": 4,
+      "norm_label": ".dbping()"
+    },
+    {
+      "label": ".heavyRead()",
+      "file_type": "code",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L65",
+      "id": "benchmark_benchmarkcontroller_benchmarkcontroller_heavyread",
+      "community": 4,
+      "norm_label": ".heavyread()"
+    },
+    {
+      "label": ".randomTransaction()",
+      "file_type": "code",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L79",
+      "id": "benchmark_benchmarkcontroller_benchmarkcontroller_randomtransaction",
+      "community": 4,
+      "norm_label": ".randomtransaction()"
+    },
+    {
+      "label": "CrdbclusterApplication",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/CrdbclusterApplication.java",
+      "source_location": "7",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "crdbclusterapplication_crdbclusterapplication",
+      "community": 35,
+      "norm_label": "crdbclusterapplication"
+    },
+    {
+      "label": "AuditLogService",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLogService.java",
+      "source_location": "13",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auditlogservice_auditlogservice",
+      "community": 2,
+      "norm_label": "auditlogservice"
+    },
+    {
+      "label": "AuditLogResponseDTO",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLogResponseDTO.java",
+      "source_location": "11",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auditlogresponsedto_auditlogresponsedto",
+      "community": 2,
+      "norm_label": "auditlogresponsedto"
+    },
+    {
+      "label": "AuditLog",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLog.java",
+      "source_location": "17",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auditlog_auditlog",
+      "community": 2,
+      "norm_label": "auditlog"
+    },
+    {
+      "label": "AuditLogController",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLogController.java",
+      "source_location": "13",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auditlogcontroller_auditlogcontroller",
+      "community": 2,
+      "norm_label": "auditlogcontroller"
+    },
+    {
+      "label": "AuditLogRepository",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLogRepository.java",
+      "source_location": "10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auditlogrepository_auditlogrepository",
+      "community": 2,
+      "norm_label": "auditlogrepository"
+    },
+    {
+      "label": "SeedController",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/seed/SeedController.java",
+      "source_location": "11",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "seedcontroller_seedcontroller",
+      "community": 2,
+      "norm_label": "seedcontroller"
+    },
+    {
+      "label": "SeedResponse",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/seed/SeedResponse.java",
+      "source_location": "14",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "seedresponse_seedresponse",
+      "community": 2,
+      "norm_label": "seedresponse"
+    },
+    {
+      "label": "SeedService",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/seed/SeedService.java",
+      "source_location": "24",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "seedservice_seedservice",
+      "community": 2,
+      "norm_label": "seedservice"
+    },
+    {
+      "label": "AccountService",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountService.java",
+      "source_location": "15",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "accountservice_accountservice",
+      "community": 2,
+      "norm_label": "accountservice"
+    },
+    {
+      "label": "AccountRepository",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountRepository.java",
+      "source_location": "10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "accountrepository_accountrepository",
+      "community": 2,
+      "norm_label": "accountrepository"
+    },
+    {
+      "label": "AccountController",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountController.java",
+      "source_location": "14",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "accountcontroller_accountcontroller",
+      "community": 2,
+      "norm_label": "accountcontroller"
+    },
+    {
+      "label": "AccountStatusRequest",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountStatusRequest.java",
+      "source_location": "12",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "accountstatusrequest_accountstatusrequest",
+      "community": 2,
+      "norm_label": "accountstatusrequest"
+    },
+    {
+      "label": "AccountCreateRequest",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountCreateRequest.java",
+      "source_location": "15",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "accountcreaterequest_accountcreaterequest",
+      "community": 2,
+      "norm_label": "accountcreaterequest"
+    },
+    {
+      "label": "AccountResponseDTO",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountResponseDTO.java",
+      "source_location": "12",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "accountresponsedto_accountresponsedto",
+      "community": 2,
+      "norm_label": "accountresponsedto"
+    },
+    {
+      "label": "Account",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/Account.java",
+      "source_location": "18",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "account_account",
+      "community": 2,
+      "norm_label": "account"
+    },
+    {
+      "label": "UserService",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserService.java",
+      "source_location": "14",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "userservice_userservice",
+      "community": 2,
+      "norm_label": "userservice"
+    },
+    {
+      "label": "UserResponseDTO",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserResponseDTO.java",
+      "source_location": "12",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "userresponsedto_userresponsedto",
+      "community": 2,
+      "norm_label": "userresponsedto"
+    },
+    {
+      "label": "UserRepository",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserRepository.java",
+      "source_location": "10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "userrepository_userrepository",
+      "community": 2,
+      "norm_label": "userrepository"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/User.java",
+      "source_location": "22",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "user_user",
+      "community": 2,
+      "norm_label": "user"
+    },
+    {
+      "label": "UserController",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserController.java",
+      "source_location": "15",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "usercontroller_usercontroller",
+      "community": 2,
+      "norm_label": "usercontroller"
+    },
+    {
+      "label": "UserUpdateRequest",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserUpdateRequest.java",
+      "source_location": "13",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "userupdaterequest_userupdaterequest",
+      "community": 2,
+      "norm_label": "userupdaterequest"
+    },
+    {
+      "label": "Role Enum",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/Role.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "role_role",
+      "community": 5,
+      "norm_label": "role enum"
+    },
+    {
+      "label": "SecurityExceptionHandler",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/SecurityExceptionHandler.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "securityexceptionhandler_securityexceptionhandler",
+      "community": 5,
+      "norm_label": "securityexceptionhandler"
+    },
+    {
+      "label": "JwtAuthenticationFilter",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/JwtAuthenticationFilter.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "jwtauthenticationfilter_jwtauthenticationfilter",
+      "community": 5,
+      "norm_label": "jwtauthenticationfilter"
+    },
+    {
+      "label": "RateLimitFilter",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/RateLimitFilter.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ratelimitfilter_ratelimitfilter",
+      "community": 5,
+      "norm_label": "ratelimitfilter"
+    },
+    {
+      "label": "CustomUserDetailsService",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/CustomUserDetailsService.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "customuserdetailsservice_customuserdetailsservice",
+      "community": 5,
+      "norm_label": "customuserdetailsservice"
+    },
+    {
+      "label": "SecurityConfig",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/SecurityConfig.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "securityconfig_securityconfig",
+      "community": 5,
+      "norm_label": "securityconfig"
+    },
+    {
+      "label": "JwtService",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/JwtService.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "jwtservice_jwtservice",
+      "community": 5,
+      "norm_label": "jwtservice"
+    },
+    {
+      "label": "StatusController",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/common/StatusController.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "statuscontroller_statuscontroller",
+      "community": 33,
+      "norm_label": "statuscontroller"
+    },
+    {
+      "label": "TransactionCreateRequest",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionCreateRequest.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "transactioncreaterequest_transactioncreaterequest",
+      "community": 13,
+      "norm_label": "transactioncreaterequest"
+    },
+    {
+      "label": "TransactionService",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionService.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "transactionservice_transactionservice",
+      "community": 13,
+      "norm_label": "transactionservice"
+    },
+    {
+      "label": "TransactionResponseDTO",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionResponseDTO.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "transactionresponsedto_transactionresponsedto",
+      "community": 13,
+      "norm_label": "transactionresponsedto"
+    },
+    {
+      "label": "Transaction Entity",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/Transaction.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "transaction_transaction",
+      "community": 13,
+      "norm_label": "transaction entity"
+    },
+    {
+      "label": "TransactionController",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionController.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "transactioncontroller_transactioncontroller",
+      "community": 13,
+      "norm_label": "transactioncontroller"
+    },
+    {
+      "label": "TransactionRepository",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionRepository.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "transactionrepository_transactionrepository",
+      "community": 13,
+      "norm_label": "transactionrepository"
+    },
+    {
+      "label": "RegisterRequest",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/RegisterRequest.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "registerrequest_registerrequest",
+      "community": 5,
+      "norm_label": "registerrequest"
+    },
+    {
+      "label": "AuthController",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthController.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "authcontroller_authcontroller",
+      "community": 5,
+      "norm_label": "authcontroller"
+    },
+    {
+      "label": "AuthService",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthService.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "authservice_authservice",
+      "community": 5,
+      "norm_label": "authservice"
+    },
+    {
+      "label": "LoginRequest",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/LoginRequest.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "loginrequest_loginrequest",
+      "community": 5,
+      "norm_label": "loginrequest"
+    },
+    {
+      "label": "AuthResponse",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthResponse.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "authresponse_authresponse",
+      "community": 5,
+      "norm_label": "authresponse"
+    },
+    {
+      "label": "MetricsConfig",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/config/MetricsConfig.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "metricsconfig_metricsconfig",
+      "community": 5,
+      "norm_label": "metricsconfig"
+    },
+    {
+      "label": "BenchmarkController",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/benchmark/BenchmarkController.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "benchmarkcontroller_benchmarkcontroller",
+      "community": 33,
+      "norm_label": "benchmarkcontroller"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CrdbclusterApplication.java",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "crdbclusterapplication_java",
+      "target": "crdbcluster_crdbclusterapplication_crdbclusterapplication",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "CrdbclusterApplication.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "crdbcluster_crdbclusterapplication_crdbclusterapplication",
+      "target": "crdbcluster_crdbclusterapplication_crdbclusterapplication_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLogService.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "audit_auditlogservice_java",
+      "target": "audit_auditlogservice_auditlogservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLogService.java",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "audit_auditlogservice_auditlogservice",
+      "target": "audit_auditlogservice_auditlogservice_getallauditlogs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLogService.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "audit_auditlogservice_auditlogservice",
+      "target": "audit_auditlogservice_auditlogservice_getauditlogsbyuserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLogService.java",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "audit_auditlogservice_auditlogservice",
+      "target": "audit_auditlogservice_auditlogservice_createauditlog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLogService.java",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "audit_auditlogservice_auditlogservice",
+      "target": "audit_auditlogservice_auditlogservice_todto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLogResponseDTO.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "audit_auditlogresponsedto_java",
+      "target": "audit_auditlogresponsedto_auditlogresponsedto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLog.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "audit_auditlog_java",
+      "target": "audit_auditlog_auditlog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLog.java",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "audit_auditlog_auditlog",
+      "target": "audit_auditlog_auditlog_prepersist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLogController.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "audit_auditlogcontroller_java",
+      "target": "audit_auditlogcontroller_auditlogcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLogController.java",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "audit_auditlogcontroller_auditlogcontroller",
+      "target": "audit_auditlogcontroller_auditlogcontroller_getallauditlogs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLogController.java",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "audit_auditlogcontroller_auditlogcontroller",
+      "target": "audit_auditlogcontroller_auditlogcontroller_getauditlogsbyuserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLogRepository.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "audit_auditlogrepository_java",
+      "target": "audit_auditlogrepository_auditlogrepository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "audit/AuditLogRepository.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "audit_auditlogrepository_auditlogrepository",
+      "target": "audit_auditlogrepository_auditlogrepository_findbyuserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "seed/SeedController.java",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "seed_seedcontroller_java",
+      "target": "seed_seedcontroller_seedcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "seed/SeedController.java",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "seed_seedcontroller_seedcontroller",
+      "target": "seed_seedcontroller_seedcontroller_seedusers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "seed/SeedController.java",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "seed_seedcontroller_seedcontroller",
+      "target": "seed_seedcontroller_seedcontroller_seedaccounts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "seed/SeedController.java",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "seed_seedcontroller_seedcontroller",
+      "target": "seed_seedcontroller_seedcontroller_seedtransactions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "seed/SeedController.java",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "seed_seedcontroller_seedcontroller",
+      "target": "seed_seedcontroller_seedcontroller_cleanall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "seed/SeedController.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "seed_seedcontroller_seedcontroller_seedusers",
+      "target": "common_statuscontroller_statuscontroller_status"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "seed/SeedController.java",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "seed_seedcontroller_seedcontroller_seedaccounts",
+      "target": "common_statuscontroller_statuscontroller_status"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "seed/SeedController.java",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "seed_seedcontroller_seedcontroller_seedtransactions",
+      "target": "common_statuscontroller_statuscontroller_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "seed/SeedResponse.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "seed_seedresponse_java",
+      "target": "seed_seedresponse_seedresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "seed/SeedService.java",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "seed_seedservice_java",
+      "target": "seed_seedservice_seedservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "seed/SeedService.java",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "seed_seedservice_seedservice",
+      "target": "seed_seedservice_seedservice_seedusers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "seed/SeedService.java",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "seed_seedservice_seedservice",
+      "target": "seed_seedservice_seedservice_seedaccounts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "seed/SeedService.java",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "seed_seedservice_seedservice",
+      "target": "seed_seedservice_seedservice_seedtransactions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "seed/SeedService.java",
+      "source_location": "L141",
+      "weight": 1.0,
+      "source": "seed_seedservice_seedservice",
+      "target": "seed_seedservice_seedservice_cleanall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "seed/SeedService.java",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "seed_seedservice_seedservice_seedaccounts",
+      "target": "common_statuscontroller_statuscontroller_status"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "seed/SeedService.java",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "seed_seedservice_seedservice_seedaccounts",
+      "target": "user_user_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "seed/SeedService.java",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "seed_seedservice_seedservice_seedtransactions",
+      "target": "common_statuscontroller_statuscontroller_status"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "seed/SeedService.java",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "seed_seedservice_seedservice_seedtransactions",
+      "target": "account_account_account"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountService.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "account_accountservice_java",
+      "target": "account_accountservice_accountservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountService.java",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "account_accountservice_accountservice",
+      "target": "account_accountservice_accountservice_createaccount",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountService.java",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "account_accountservice_accountservice",
+      "target": "account_accountservice_accountservice_getallaccounts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountService.java",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "account_accountservice_accountservice",
+      "target": "account_accountservice_accountservice_getaccountbyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountService.java",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "account_accountservice_accountservice",
+      "target": "account_accountservice_accountservice_getaccountsbyuserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountService.java",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "account_accountservice_accountservice",
+      "target": "account_accountservice_accountservice_updateaccountstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountService.java",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "account_accountservice_accountservice",
+      "target": "account_accountservice_accountservice_todto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "account/AccountService.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "account_accountservice_accountservice_createaccount",
+      "target": "common_statuscontroller_statuscontroller_status"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "account/AccountService.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "account_accountservice_accountservice_createaccount",
+      "target": "user_user_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountService.java",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "account_accountservice_accountservice_updateaccountstatus",
+      "target": "account_accountservice_accountservice_getaccountbyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "account/AccountService.java",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "account_accountservice_accountservice_todto",
+      "target": "common_statuscontroller_statuscontroller_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountRepository.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "account_accountrepository_java",
+      "target": "account_accountrepository_accountrepository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountRepository.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "account_accountrepository_accountrepository",
+      "target": "account_accountrepository_accountrepository_findbyuserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountController.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "account_accountcontroller_java",
+      "target": "account_accountcontroller_accountcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountController.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "account_accountcontroller_accountcontroller",
+      "target": "account_accountcontroller_accountcontroller_createaccount",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountController.java",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "account_accountcontroller_accountcontroller",
+      "target": "account_accountcontroller_accountcontroller_getallaccounts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountController.java",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "account_accountcontroller_accountcontroller",
+      "target": "account_accountcontroller_accountcontroller_getaccountbyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountController.java",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "account_accountcontroller_accountcontroller",
+      "target": "account_accountcontroller_accountcontroller_getaccountsbyuserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountController.java",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "account_accountcontroller_accountcontroller",
+      "target": "account_accountcontroller_accountcontroller_updateaccountstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "account/AccountController.java",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "account_accountcontroller_accountcontroller_createaccount",
+      "target": "common_statuscontroller_statuscontroller_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountStatusRequest.java",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "account_accountstatusrequest_java",
+      "target": "account_accountstatusrequest_accountstatusrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountCreateRequest.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "account_accountcreaterequest_java",
+      "target": "account_accountcreaterequest_accountcreaterequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "account/AccountResponseDTO.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "account_accountresponsedto_java",
+      "target": "account_accountresponsedto_accountresponsedto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "account/Account.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "account_account_java",
+      "target": "account_account_account",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/Account.java",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "account_account_account",
+      "target": "account_account_account_prepersist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "account/Account.java",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "account_account_account",
+      "target": "account_account_account_preupdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "transaction_transactionservice_transactionservice_createtransaction",
+      "target": "account_account_account"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserService.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "user_userservice_java",
+      "target": "user_userservice_userservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserService.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "user_userservice_userservice",
+      "target": "user_userservice_userservice_getallusers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserService.java",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "user_userservice_userservice",
+      "target": "user_userservice_userservice_getuserbyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserService.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "user_userservice_userservice",
+      "target": "user_userservice_userservice_updateuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserService.java",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "user_userservice_userservice",
+      "target": "user_userservice_userservice_deleteuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserService.java",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "user_userservice_userservice",
+      "target": "user_userservice_userservice_todto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserService.java",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "user_userservice_userservice_updateuser",
+      "target": "user_userservice_userservice_getuserbyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserResponseDTO.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "user_userresponsedto_java",
+      "target": "user_userresponsedto_userresponsedto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserRepository.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "user_userrepository_java",
+      "target": "user_userrepository_userrepository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserRepository.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "user_userrepository_userrepository",
+      "target": "user_userrepository_userrepository_findbyemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserRepository.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "user_userrepository_userrepository",
+      "target": "user_userrepository_userrepository_existsbyemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "security/CustomUserDetailsService.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "security_customuserdetailsservice_customuserdetailsservice_loaduserbyusername",
+      "target": "user_userrepository_userrepository_findbyemail"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "auth/AuthService.java",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "auth_authservice_authservice_login",
+      "target": "user_userrepository_userrepository_findbyemail"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "auth/AuthService.java",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "auth_authservice_authservice_register",
+      "target": "user_userrepository_userrepository_existsbyemail"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "user/User.java",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "user_user_java",
+      "target": "userdetails",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "user/User.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "user_user_java",
+      "target": "user_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "user/User.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "user_user_user",
+      "target": "userdetails",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/User.java",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "user_user_user",
+      "target": "user_user_user_prepersist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/User.java",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "user_user_user",
+      "target": "user_user_user_preupdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/User.java",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "user_user_user",
+      "target": "user_user_user_getauthorities",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/User.java",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "user_user_user",
+      "target": "user_user_user_getpassword",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/User.java",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "user_user_user",
+      "target": "user_user_user_getusername",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/User.java",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "user_user_user",
+      "target": "user_user_user_isaccountnonexpired",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/User.java",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "user_user_user",
+      "target": "user_user_user_isaccountnonlocked",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/User.java",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "user_user_user",
+      "target": "user_user_user_iscredentialsnonexpired",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/User.java",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "user_user_user",
+      "target": "user_user_user_isenabled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "security_jwtauthenticationfilter_java",
+      "target": "userdetails",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "security/CustomUserDetailsService.java",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "security_customuserdetailsservice_java",
+      "target": "userdetails",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "security_jwtservice_java",
+      "target": "userdetails",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "security_jwtauthenticationfilter_jwtauthenticationfilter_dofilterinternal",
+      "target": "user_user_user_getauthorities"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "security/JwtService.java",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice_generatetoken",
+      "target": "user_user_user_getauthorities"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "auth/AuthService.java",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "auth_authservice_authservice_register",
+      "target": "user_user_user_getpassword"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "auth/AuthService.java",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "auth_authservice_authservice_login",
+      "target": "user_user_user_getpassword"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "security/JwtService.java",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice_generatetoken",
+      "target": "user_user_user_getusername"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "security/JwtService.java",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice_istokenvalid",
+      "target": "user_user_user_getusername"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserController.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "user_usercontroller_java",
+      "target": "user_usercontroller_usercontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserController.java",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "user_usercontroller_usercontroller",
+      "target": "user_usercontroller_usercontroller_getallusers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserController.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "user_usercontroller_usercontroller",
+      "target": "user_usercontroller_usercontroller_getuserbyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserController.java",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "user_usercontroller_usercontroller",
+      "target": "user_usercontroller_usercontroller_updateuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserController.java",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "user_usercontroller_usercontroller",
+      "target": "user_usercontroller_usercontroller_deleteuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "user/UserUpdateRequest.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "user_userupdaterequest_java",
+      "target": "user_userupdaterequest_userupdaterequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityExceptionHandler.java",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "security_securityexceptionhandler_java",
+      "target": "authenticationentrypoint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityExceptionHandler.java",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "security_securityexceptionhandler_java",
+      "target": "accessdeniedhandler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityExceptionHandler.java",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "security_securityexceptionhandler_java",
+      "target": "security_securityexceptionhandler_securityexceptionhandler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityExceptionHandler.java",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "security_securityexceptionhandler_securityexceptionhandler",
+      "target": "authenticationentrypoint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityExceptionHandler.java",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "security_securityexceptionhandler_securityexceptionhandler",
+      "target": "accessdeniedhandler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityExceptionHandler.java",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "security_securityexceptionhandler_securityexceptionhandler",
+      "target": "security_securityexceptionhandler_securityexceptionhandler_commence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityExceptionHandler.java",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "security_securityexceptionhandler_securityexceptionhandler",
+      "target": "security_securityexceptionhandler_securityexceptionhandler_handle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "security_securityconfig_securityconfig_securityfilterchain",
+      "target": "authenticationentrypoint"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "security_securityconfig_securityconfig_securityfilterchain",
+      "target": "accessdeniedhandler"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "security_jwtauthenticationfilter_java",
+      "target": "userdetailsservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "security_jwtauthenticationfilter_java",
+      "target": "onceperrequestfilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "security_jwtauthenticationfilter_java",
+      "target": "security_jwtauthenticationfilter_jwtauthenticationfilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "security_jwtauthenticationfilter_jwtauthenticationfilter",
+      "target": "onceperrequestfilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "security_jwtauthenticationfilter_jwtauthenticationfilter",
+      "target": "security_jwtauthenticationfilter_jwtauthenticationfilter_dofilterinternal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "security_ratelimitfilter_java",
+      "target": "onceperrequestfilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "security_ratelimitfilter_ratelimitfilter",
+      "target": "onceperrequestfilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "security_jwtauthenticationfilter_jwtauthenticationfilter_dofilterinternal",
+      "target": "security_jwtservice_jwtservice_extractusername"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "security_jwtauthenticationfilter_jwtauthenticationfilter_dofilterinternal",
+      "target": "security_customuserdetailsservice_customuserdetailsservice_loaduserbyusername"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "security/JwtAuthenticationFilter.java",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "security_jwtauthenticationfilter_jwtauthenticationfilter_dofilterinternal",
+      "target": "security_jwtservice_jwtservice_istokenvalid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "security_ratelimitfilter_java",
+      "target": "security_ratelimitfilter_ratelimitfilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "security_ratelimitfilter_ratelimitfilter",
+      "target": "security_ratelimitfilter_ratelimitfilter_resolvebucket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "security_ratelimitfilter_ratelimitfilter",
+      "target": "security_ratelimitfilter_ratelimitfilter_dofilterinternal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "security_ratelimitfilter_ratelimitfilter",
+      "target": "security_ratelimitfilter_ratelimitfilter_ratelimitfilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "security_ratelimitfilter_ratelimitfilter_dofilterinternal",
+      "target": "security_ratelimitfilter_ratelimitfilter_resolvebucket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "security/RateLimitFilter.java",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "security_ratelimitfilter_ratelimitfilter_dofilterinternal",
+      "target": "benchmark_benchmarkcontroller_benchmarkcontroller_write"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "security/CustomUserDetailsService.java",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "security_customuserdetailsservice_java",
+      "target": "userdetailsservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "security/CustomUserDetailsService.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "security_customuserdetailsservice_java",
+      "target": "security_customuserdetailsservice_customuserdetailsservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "security/CustomUserDetailsService.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "security_customuserdetailsservice_customuserdetailsservice",
+      "target": "userdetailsservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/CustomUserDetailsService.java",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "security_customuserdetailsservice_customuserdetailsservice",
+      "target": "security_customuserdetailsservice_customuserdetailsservice_loaduserbyusername",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "security_securityconfig_java",
+      "target": "userdetailsservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "security_securityconfig_java",
+      "target": "security_securityconfig_securityconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "security_securityconfig_securityconfig",
+      "target": "security_securityconfig_securityconfig_securityfilterchain",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "security_securityconfig_securityconfig",
+      "target": "security_securityconfig_securityconfig_authenticationprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "security_securityconfig_securityconfig",
+      "target": "security_securityconfig_securityconfig_authenticationmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "security_securityconfig_securityconfig",
+      "target": "security_securityconfig_securityconfig_passwordencoder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "security_securityconfig_securityconfig",
+      "target": "security_securityconfig_securityconfig_jwtfilterregistration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "security_securityconfig_securityconfig",
+      "target": "security_securityconfig_securityconfig_ratelimitfilterregistration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "security_securityconfig_securityconfig_securityfilterchain",
+      "target": "security_securityconfig_securityconfig_authenticationprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "security/SecurityConfig.java",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "security_securityconfig_securityconfig_authenticationprovider",
+      "target": "security_securityconfig_securityconfig_passwordencoder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "security_jwtservice_java",
+      "target": "security_jwtservice_jwtservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice",
+      "target": "security_jwtservice_jwtservice_getsigninkey",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice",
+      "target": "security_jwtservice_jwtservice_generatetoken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice",
+      "target": "security_jwtservice_jwtservice_extractusername",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice",
+      "target": "security_jwtservice_jwtservice_istokenvalid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice",
+      "target": "security_jwtservice_jwtservice_istokenexpired",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice",
+      "target": "security_jwtservice_jwtservice_extractclaim",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice_generatetoken",
+      "target": "security_jwtservice_jwtservice_getsigninkey",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice_extractclaim",
+      "target": "security_jwtservice_jwtservice_getsigninkey",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "auth/AuthService.java",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "auth_authservice_authservice_register",
+      "target": "security_jwtservice_jwtservice_generatetoken"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "auth/AuthService.java",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "auth_authservice_authservice_login",
+      "target": "security_jwtservice_jwtservice_generatetoken"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice_extractusername",
+      "target": "security_jwtservice_jwtservice_extractclaim",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice_istokenvalid",
+      "target": "security_jwtservice_jwtservice_extractusername",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice_istokenvalid",
+      "target": "security_jwtservice_jwtservice_istokenexpired",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "security/JwtService.java",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "security_jwtservice_jwtservice_istokenexpired",
+      "target": "security_jwtservice_jwtservice_extractclaim",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "common/StatusController.java",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "common_statuscontroller_java",
+      "target": "common_statuscontroller_statuscontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "common/StatusController.java",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "common_statuscontroller_statuscontroller",
+      "target": "common_statuscontroller_statuscontroller_status",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "common/StatusController.java",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "common_statuscontroller_statuscontroller",
+      "target": "common_statuscontroller_statuscontroller_databasestatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "common/StatusController.java",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "common_statuscontroller_statuscontroller_databasestatus",
+      "target": "common_statuscontroller_statuscontroller_status",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "transaction_transactionservice_transactionservice_createtransaction",
+      "target": "common_statuscontroller_statuscontroller_status"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "transaction_transactionservice_transactionservice_todto",
+      "target": "common_statuscontroller_statuscontroller_status"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "transaction/TransactionController.java",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "transaction_transactioncontroller_transactioncontroller_createtransaction",
+      "target": "common_statuscontroller_statuscontroller_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionCreateRequest.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "transaction_transactioncreaterequest_java",
+      "target": "transaction_transactioncreaterequest_transactioncreaterequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "transaction_transactionservice_java",
+      "target": "transaction_transactionservice_transactionservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "transaction_transactionservice_transactionservice",
+      "target": "transaction_transactionservice_transactionservice_createtransaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "transaction_transactionservice_transactionservice",
+      "target": "transaction_transactionservice_transactionservice_getalltransactions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "transaction_transactionservice_transactionservice",
+      "target": "transaction_transactionservice_transactionservice_gettransactionbyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "transaction_transactionservice_transactionservice",
+      "target": "transaction_transactionservice_transactionservice_gettransactionsbyaccountid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "transaction_transactionservice_transactionservice",
+      "target": "transaction_transactionservice_transactionservice_todto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "transaction/TransactionService.java",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "transaction_transactionservice_transactionservice_gettransactionsbyaccountid",
+      "target": "transaction_transactionrepository_transactionrepository_findbyaccountid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionResponseDTO.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "transaction_transactionresponsedto_java",
+      "target": "transaction_transactionresponsedto_transactionresponsedto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/Transaction.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "transaction_transaction_java",
+      "target": "transaction_transaction_transaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/Transaction.java",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "transaction_transaction_transaction",
+      "target": "transaction_transaction_transaction_prepersist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionController.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "transaction_transactioncontroller_java",
+      "target": "transaction_transactioncontroller_transactioncontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionController.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "transaction_transactioncontroller_transactioncontroller",
+      "target": "transaction_transactioncontroller_transactioncontroller_createtransaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionController.java",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "transaction_transactioncontroller_transactioncontroller",
+      "target": "transaction_transactioncontroller_transactioncontroller_getalltransactions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionController.java",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "transaction_transactioncontroller_transactioncontroller",
+      "target": "transaction_transactioncontroller_transactioncontroller_gettransactionbyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionController.java",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "transaction_transactioncontroller_transactioncontroller",
+      "target": "transaction_transactioncontroller_transactioncontroller_gettransactionsbyaccountid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionRepository.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "transaction_transactionrepository_java",
+      "target": "transaction_transactionrepository_transactionrepository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "transaction/TransactionRepository.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "transaction_transactionrepository_transactionrepository",
+      "target": "transaction_transactionrepository_transactionrepository_findbyaccountid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "auth/RegisterRequest.java",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "auth_registerrequest_java",
+      "target": "auth_registerrequest_registerrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "auth/AuthController.java",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "auth_authcontroller_java",
+      "target": "auth_authcontroller_authcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "auth/AuthController.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "auth_authcontroller_authcontroller",
+      "target": "auth_authcontroller_authcontroller_register",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "auth/AuthController.java",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "auth_authcontroller_authcontroller",
+      "target": "auth_authcontroller_authcontroller_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "auth/AuthController.java",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "auth_authcontroller_authcontroller",
+      "target": "auth_authcontroller_authcontroller_me",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "auth/AuthService.java",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "auth_authservice_java",
+      "target": "auth_authservice_authservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "auth/AuthService.java",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "auth_authservice_authservice",
+      "target": "auth_authservice_authservice_register",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "auth/AuthService.java",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "auth_authservice_authservice",
+      "target": "auth_authservice_authservice_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "auth/LoginRequest.java",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "auth_loginrequest_java",
+      "target": "auth_loginrequest_loginrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "auth/AuthResponse.java",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "auth_authresponse_java",
+      "target": "auth_authresponse_authresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "config_metricsconfig_java",
+      "target": "config_metricsconfig_metricsconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "config_metricsconfig_metricsconfig",
+      "target": "config_metricsconfig_metricsconfig_seeduserscounter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "config_metricsconfig_metricsconfig",
+      "target": "config_metricsconfig_metricsconfig_seedaccountscounter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "config_metricsconfig_metricsconfig",
+      "target": "config_metricsconfig_metricsconfig_seedtransactionscounter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "config_metricsconfig_metricsconfig",
+      "target": "config_metricsconfig_metricsconfig_benchmarkreadscounter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "config_metricsconfig_metricsconfig",
+      "target": "config_metricsconfig_metricsconfig_benchmarkwritescounter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "config_metricsconfig_metricsconfig",
+      "target": "config_metricsconfig_metricsconfig_authfailurescounter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "config_metricsconfig_metricsconfig",
+      "target": "config_metricsconfig_metricsconfig_ratelimithitscounter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "config/MetricsConfig.java",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "config_metricsconfig_metricsconfig",
+      "target": "config_metricsconfig_metricsconfig_dblatencytimer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "benchmark_benchmarkcontroller_java",
+      "target": "benchmark_benchmarkcontroller_benchmarkcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "benchmark_benchmarkcontroller_benchmarkcontroller",
+      "target": "benchmark_benchmarkcontroller_benchmarkcontroller_read",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "benchmark_benchmarkcontroller_benchmarkcontroller",
+      "target": "benchmark_benchmarkcontroller_benchmarkcontroller_write",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "benchmark_benchmarkcontroller_benchmarkcontroller",
+      "target": "benchmark_benchmarkcontroller_benchmarkcontroller_dbping",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "benchmark_benchmarkcontroller_benchmarkcontroller",
+      "target": "benchmark_benchmarkcontroller_benchmarkcontroller_heavyread",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "benchmark/BenchmarkController.java",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "benchmark_benchmarkcontroller_benchmarkcontroller",
+      "target": "benchmark_benchmarkcontroller_benchmarkcontroller_randomtransaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLogController.java",
+      "source_location": "19-31",
+      "weight": 1.0,
+      "source": "auditlogcontroller_auditlogcontroller",
+      "target": "auditlogservice_auditlogservice"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLogService.java",
+      "source_location": "21-35",
+      "weight": 1.0,
+      "source": "auditlogservice_auditlogservice",
+      "target": "auditlogrepository_auditlogrepository"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLogService.java",
+      "source_location": "20-48",
+      "weight": 1.0,
+      "source": "auditlogservice_auditlogservice",
+      "target": "auditlog_auditlog"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLogService.java",
+      "source_location": "38-49",
+      "weight": 1.0,
+      "source": "auditlogservice_auditlogservice",
+      "target": "auditlogresponsedto_auditlogresponsedto"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLogResponseDTO.java",
+      "source_location": null,
+      "weight": 0.85,
+      "source": "auditlogresponsedto_auditlogresponsedto",
+      "target": "accountresponsedto_accountresponsedto"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLogResponseDTO.java",
+      "source_location": null,
+      "weight": 0.85,
+      "source": "auditlogresponsedto_auditlogresponsedto",
+      "target": "userresponsedto_userresponsedto"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLogRepository.java",
+      "source_location": "10",
+      "weight": 1.0,
+      "source": "auditlogrepository_auditlogrepository",
+      "target": "auditlog_auditlog"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit/AuditLog.java",
+      "source_location": "23-25",
+      "weight": 1.0,
+      "source": "auditlog_auditlog",
+      "target": "user_user"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/seed/SeedController.java",
+      "source_location": "26-81",
+      "weight": 1.0,
+      "source": "seedcontroller_seedcontroller",
+      "target": "seedservice_seedservice"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/seed/SeedController.java",
+      "source_location": "17-82",
+      "weight": 1.0,
+      "source": "seedcontroller_seedcontroller",
+      "target": "seedresponse_seedresponse"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/seed/SeedService.java",
+      "source_location": "54-161",
+      "weight": 1.0,
+      "source": "seedservice_seedservice",
+      "target": "seedresponse_seedresponse"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/seed/SeedService.java",
+      "source_location": "51-151",
+      "weight": 1.0,
+      "source": "seedservice_seedservice",
+      "target": "userrepository_userrepository"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/seed/SeedService.java",
+      "source_location": "87-150",
+      "weight": 1.0,
+      "source": "seedservice_seedservice",
+      "target": "accountrepository_accountrepository"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/seed/SeedService.java",
+      "source_location": "36-58",
+      "weight": 1.0,
+      "source": "seedservice_seedservice",
+      "target": "user_user"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/seed/SeedService.java",
+      "source_location": "65-95",
+      "weight": 1.0,
+      "source": "seedservice_seedservice",
+      "target": "account_account"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountController.java",
+      "source_location": "20-52",
+      "weight": 1.0,
+      "source": "accountcontroller_accountcontroller",
+      "target": "accountservice_accountservice"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountService.java",
+      "source_location": "33-60",
+      "weight": 1.0,
+      "source": "accountservice_accountservice",
+      "target": "accountrepository_accountrepository"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountService.java",
+      "source_location": "24-50",
+      "weight": 1.0,
+      "source": "accountservice_accountservice",
+      "target": "userrepository_userrepository"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountService.java",
+      "source_location": "23-73",
+      "weight": 1.0,
+      "source": "accountservice_accountservice",
+      "target": "account_account"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountService.java",
+      "source_location": "63-73",
+      "weight": 1.0,
+      "source": "accountservice_accountservice",
+      "target": "accountresponsedto_accountresponsedto"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountService.java",
+      "source_location": "23",
+      "weight": 1.0,
+      "source": "accountservice_accountservice",
+      "target": "accountcreaterequest_accountcreaterequest"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountRepository.java",
+      "source_location": "10",
+      "weight": 1.0,
+      "source": "accountrepository_accountrepository",
+      "target": "account_account"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountController.java",
+      "source_location": "19-44",
+      "weight": 1.0,
+      "source": "accountcontroller_accountcontroller",
+      "target": "accountresponsedto_accountresponsedto"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountController.java",
+      "source_location": "19",
+      "weight": 1.0,
+      "source": "accountcontroller_accountcontroller",
+      "target": "accountcreaterequest_accountcreaterequest"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountController.java",
+      "source_location": "50",
+      "weight": 1.0,
+      "source": "accountcontroller_accountcontroller",
+      "target": "accountstatusrequest_accountstatusrequest"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountCreateRequest.java",
+      "source_location": null,
+      "weight": 0.75,
+      "source": "accountcreaterequest_accountcreaterequest",
+      "target": "accountstatusrequest_accountstatusrequest"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountCreateRequest.java",
+      "source_location": null,
+      "weight": 0.75,
+      "source": "accountcreaterequest_accountcreaterequest",
+      "target": "userupdaterequest_userupdaterequest"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/AccountResponseDTO.java",
+      "source_location": null,
+      "weight": 0.85,
+      "source": "accountresponsedto_accountresponsedto",
+      "target": "userresponsedto_userresponsedto"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account/Account.java",
+      "source_location": "24-26",
+      "weight": 1.0,
+      "source": "account_account",
+      "target": "user_user"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserController.java",
+      "source_location": "21-44",
+      "weight": 1.0,
+      "source": "usercontroller_usercontroller",
+      "target": "userservice_userservice"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserService.java",
+      "source_location": "19-45",
+      "weight": 1.0,
+      "source": "userservice_userservice",
+      "target": "userrepository_userrepository"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserService.java",
+      "source_location": "18-57",
+      "weight": 1.0,
+      "source": "userservice_userservice",
+      "target": "user_user"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserService.java",
+      "source_location": "48-58",
+      "weight": 1.0,
+      "source": "userservice_userservice",
+      "target": "userresponsedto_userresponsedto"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserService.java",
+      "source_location": "27",
+      "weight": 1.0,
+      "source": "userservice_userservice",
+      "target": "userupdaterequest_userupdaterequest"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserController.java",
+      "source_location": "20-38",
+      "weight": 1.0,
+      "source": "usercontroller_usercontroller",
+      "target": "userresponsedto_userresponsedto"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserRepository.java",
+      "source_location": "10",
+      "weight": 1.0,
+      "source": "userrepository_userrepository",
+      "target": "user_user"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user/UserController.java",
+      "source_location": "34",
+      "weight": 1.0,
+      "source": "usercontroller_usercontroller",
+      "target": "userupdaterequest_userupdaterequest"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/SecurityConfig.java",
+      "source_location": "securityFilterChain - hasRole/hasAnyRole calls",
+      "weight": 1.0,
+      "source": "securityconfig_securityconfig",
+      "target": "role_role"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthService.java",
+      "source_location": "register - Role.USER assignment",
+      "weight": 1.0,
+      "source": "authservice_authservice",
+      "target": "role_role"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/SecurityConfig.java",
+      "source_location": "securityFilterChain",
+      "weight": 1.0,
+      "source": "securityconfig_securityconfig",
+      "target": "securityexceptionhandler_securityexceptionhandler"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/JwtAuthenticationFilter.java",
+      "source_location": "doFilterInternal",
+      "weight": 1.0,
+      "source": "jwtauthenticationfilter_jwtauthenticationfilter",
+      "target": "jwtservice_jwtservice"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/JwtAuthenticationFilter.java",
+      "source_location": "doFilterInternal",
+      "weight": 1.0,
+      "source": "jwtauthenticationfilter_jwtauthenticationfilter",
+      "target": "customuserdetailsservice_customuserdetailsservice"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/SecurityConfig.java",
+      "source_location": "securityFilterChain",
+      "weight": 1.0,
+      "source": "securityconfig_securityconfig",
+      "target": "jwtauthenticationfilter_jwtauthenticationfilter"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/SecurityConfig.java",
+      "source_location": "securityFilterChain",
+      "weight": 1.0,
+      "source": "securityconfig_securityconfig",
+      "target": "ratelimitfilter_ratelimitfilter"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/RateLimitFilter.java",
+      "source_location": "constructor",
+      "weight": 0.85,
+      "source": "ratelimitfilter_ratelimitfilter",
+      "target": "metricsconfig_metricsconfig"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/SecurityConfig.java",
+      "source_location": "authenticationProvider",
+      "weight": 1.0,
+      "source": "securityconfig_securityconfig",
+      "target": "customuserdetailsservice_customuserdetailsservice"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthService.java",
+      "source_location": "AuthService calls JwtService.generateToken in both register and login flows",
+      "weight": 0.95,
+      "source": "jwtservice_jwtservice",
+      "target": "authservice_authservice"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/benchmark/BenchmarkController.java",
+      "source_location": "both use JdbcTemplate for direct DB queries and health/diagnostic endpoints",
+      "weight": 0.75,
+      "source": "benchmarkcontroller_benchmarkcontroller",
+      "target": "statuscontroller_statuscontroller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionController.java",
+      "source_location": "createTransaction method parameter",
+      "weight": 1.0,
+      "source": "transactioncontroller_transactioncontroller",
+      "target": "transactioncreaterequest_transactioncreaterequest"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionService.java",
+      "source_location": "createTransaction method parameter",
+      "weight": 1.0,
+      "source": "transactionservice_transactionservice",
+      "target": "transactioncreaterequest_transactioncreaterequest"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionCreateRequest.java",
+      "source_location": "both represent the transaction data shape for input and output",
+      "weight": 0.75,
+      "source": "transactioncreaterequest_transactioncreaterequest",
+      "target": "transactionresponsedto_transactionresponsedto"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionController.java",
+      "source_location": "createTransaction, getAllTransactions, getTransactionById, getTransactionsByAccountId",
+      "weight": 1.0,
+      "source": "transactioncontroller_transactioncontroller",
+      "target": "transactionservice_transactionservice"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionService.java",
+      "source_location": "createTransaction, getAllTransactions, getTransactionById, getTransactionsByAccountId",
+      "weight": 1.0,
+      "source": "transactionservice_transactionservice",
+      "target": "transactionrepository_transactionrepository"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionService.java",
+      "source_location": "createTransaction, toDTO",
+      "weight": 1.0,
+      "source": "transactionservice_transactionservice",
+      "target": "transaction_transaction"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionService.java",
+      "source_location": "toDTO method",
+      "weight": 1.0,
+      "source": "transactionservice_transactionservice",
+      "target": "transactionresponsedto_transactionresponsedto"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionController.java",
+      "source_location": "createTransaction, getAllTransactions, getTransactionById, getTransactionsByAccountId return types",
+      "weight": 1.0,
+      "source": "transactioncontroller_transactioncontroller",
+      "target": "transactionresponsedto_transactionresponsedto"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/transaction/TransactionRepository.java",
+      "source_location": "JpaRepository<Transaction, UUID>",
+      "weight": 1.0,
+      "source": "transactionrepository_transactionrepository",
+      "target": "transaction_transaction"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthService.java",
+      "source_location": "register method parameter",
+      "weight": 1.0,
+      "source": "authservice_authservice",
+      "target": "registerrequest_registerrequest"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthController.java",
+      "source_location": "register method parameter",
+      "weight": 1.0,
+      "source": "authcontroller_authcontroller",
+      "target": "registerrequest_registerrequest"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/RegisterRequest.java",
+      "source_location": "both are auth input DTOs carrying credentials",
+      "weight": 0.75,
+      "source": "registerrequest_registerrequest",
+      "target": "loginrequest_loginrequest"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthController.java",
+      "source_location": "register, login, me",
+      "weight": 1.0,
+      "source": "authcontroller_authcontroller",
+      "target": "authservice_authservice"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthController.java",
+      "source_location": "login method parameter",
+      "weight": 1.0,
+      "source": "authcontroller_authcontroller",
+      "target": "loginrequest_loginrequest"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthController.java",
+      "source_location": "register, login, me return type",
+      "weight": 1.0,
+      "source": "authcontroller_authcontroller",
+      "target": "authresponse_authresponse"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthService.java",
+      "source_location": "login method parameter",
+      "weight": 1.0,
+      "source": "authservice_authservice",
+      "target": "loginrequest_loginrequest"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthService.java",
+      "source_location": "register, login return type",
+      "weight": 1.0,
+      "source": "authservice_authservice",
+      "target": "authresponse_authresponse"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "audit_mvc_layer",
+      "label": "Audit Log MVC Triad",
+      "nodes": [
+        "auditlogcontroller_auditlogcontroller",
+        "auditlogservice_auditlogservice",
+        "auditlogrepository_auditlogrepository"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/audit"
+    },
+    {
+      "id": "account_mvc_layer",
+      "label": "Account MVC Triad",
+      "nodes": [
+        "accountcontroller_accountcontroller",
+        "accountservice_accountservice",
+        "accountrepository_accountrepository"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/account"
+    },
+    {
+      "id": "user_mvc_layer",
+      "label": "User MVC Triad",
+      "nodes": [
+        "usercontroller_usercontroller",
+        "userservice_userservice",
+        "userrepository_userrepository"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/user"
+    },
+    {
+      "id": "jwt_auth_pipeline",
+      "label": "JWT Authentication Pipeline",
+      "nodes": [
+        "jwtauthenticationfilter_jwtauthenticationfilter",
+        "jwtservice_jwtservice",
+        "customuserdetailsservice_customuserdetailsservice"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/JwtAuthenticationFilter.java"
+    },
+    {
+      "id": "security_filter_chain",
+      "label": "Security Filter Chain Configuration",
+      "nodes": [
+        "securityconfig_securityconfig",
+        "jwtauthenticationfilter_jwtauthenticationfilter",
+        "ratelimitfilter_ratelimitfilter",
+        "securityexceptionhandler_securityexceptionhandler"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/security/SecurityConfig.java"
+    },
+    {
+      "id": "auth_flow",
+      "label": "Authentication Flow (Register/Login)",
+      "nodes": [
+        "authcontroller_authcontroller",
+        "authservice_authservice",
+        "jwtservice_jwtservice"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/main/java/com/cockroach/crdbcluster/auth/AuthService.java"
+    }
+  ],
+  "built_at_commit": "e6343822eadb554bb0c984d8bc2c28ba384c15c0"
+}

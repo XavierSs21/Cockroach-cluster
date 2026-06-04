@@ -1,0 +1,701 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "benchmark_test_execution_flow",
+        "label": "Benchmark Test Execution Flow: Test \u2192 Runner \u2192 Auth \u2192 Autocannon",
+        "nodes": [
+          "write_test_runtest",
+          "read_test_runtest",
+          "failover_test_runtest",
+          "db_ping_test_runtest",
+          "runner_runauthenticatedtest",
+          "auth_gettoken"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "load-tests/runner.js"
+      },
+      {
+        "id": "config_shared_constants_flow",
+        "label": "Shared Configuration Constants Used by Auth and Runner",
+        "nodes": [
+          "config_api_base_url",
+          "config_test_user",
+          "auth_gettoken",
+          "runner_runauthenticatedtest"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "load-tests/config.js"
+      },
+      {
+        "id": "autocannon_load_test_pattern",
+        "label": "Autocannon HTTP Load Test Pattern with Auth and Tracking",
+        "nodes": [
+          "runner_autocannon_instance",
+          "runner_runauthenticatedtest",
+          "auth_gettoken"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "load-tests/runner.js"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "config.js",
+      "file_type": "code",
+      "source_file": "config.js",
+      "source_location": "L1",
+      "id": "config_js",
+      "community": 3,
+      "norm_label": "config.js"
+    },
+    {
+      "label": "TEST_USER",
+      "file_type": "code",
+      "source_file": "config.js",
+      "source_location": "L3",
+      "id": "load_tests_config_test_user",
+      "community": 3,
+      "norm_label": "test_user"
+    },
+    {
+      "label": "runner.js",
+      "file_type": "code",
+      "source_file": "runner.js",
+      "source_location": "L1",
+      "id": "runner_js",
+      "community": 1,
+      "norm_label": "runner.js"
+    },
+    {
+      "label": "runAuthenticatedTest()",
+      "file_type": "code",
+      "source_file": "runner.js",
+      "source_location": "L5",
+      "id": "load_tests_runner_runauthenticatedtest",
+      "community": 1,
+      "norm_label": "runauthenticatedtest()"
+    },
+    {
+      "label": "write-test.js",
+      "file_type": "code",
+      "source_file": "write-test.js",
+      "source_location": "L1",
+      "id": "write_test_js",
+      "community": 1,
+      "norm_label": "write-test.js"
+    },
+    {
+      "label": "auth.js",
+      "file_type": "code",
+      "source_file": "auth.js",
+      "source_location": "L1",
+      "id": "auth_js",
+      "community": 3,
+      "norm_label": "auth.js"
+    },
+    {
+      "label": "getToken()",
+      "file_type": "code",
+      "source_file": "auth.js",
+      "source_location": "L3",
+      "id": "load_tests_auth_gettoken",
+      "community": 1,
+      "norm_label": "gettoken()"
+    },
+    {
+      "label": "read-test.js",
+      "file_type": "code",
+      "source_file": "read-test.js",
+      "source_location": "L1",
+      "id": "read_test_js",
+      "community": 1,
+      "norm_label": "read-test.js"
+    },
+    {
+      "label": "failover-test.js",
+      "file_type": "code",
+      "source_file": "failover-test.js",
+      "source_location": "L1",
+      "id": "failover_test_js",
+      "community": 1,
+      "norm_label": "failover-test.js"
+    },
+    {
+      "label": "db-ping-test.js",
+      "file_type": "code",
+      "source_file": "db-ping-test.js",
+      "source_location": "L1",
+      "id": "db_ping_test_js",
+      "community": 1,
+      "norm_label": "db-ping-test.js"
+    },
+    {
+      "label": "API Base URL Constant",
+      "file_type": "code",
+      "source_file": "load-tests/config.js",
+      "source_location": "1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "config_api_base_url",
+      "community": 2,
+      "norm_label": "api base url constant"
+    },
+    {
+      "label": "Test User Credentials",
+      "file_type": "code",
+      "source_file": "load-tests/config.js",
+      "source_location": "3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "config_test_user",
+      "community": 2,
+      "norm_label": "test user credentials"
+    },
+    {
+      "label": "Default Connections Constant",
+      "file_type": "code",
+      "source_file": "load-tests/config.js",
+      "source_location": "8",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "config_default_connections",
+      "community": 0,
+      "norm_label": "default connections constant"
+    },
+    {
+      "label": "Default Duration Constant",
+      "file_type": "code",
+      "source_file": "load-tests/config.js",
+      "source_location": "9",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "config_default_duration",
+      "community": 0,
+      "norm_label": "default duration constant"
+    },
+    {
+      "label": "getToken - JWT Auth Function",
+      "file_type": "code",
+      "source_file": "load-tests/auth.js",
+      "source_location": "3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auth_gettoken",
+      "community": 2,
+      "norm_label": "gettoken - jwt auth function"
+    },
+    {
+      "label": "runAuthenticatedTest - Autocannon Runner",
+      "file_type": "code",
+      "source_file": "load-tests/runner.js",
+      "source_location": "5",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "runner_runauthenticatedtest",
+      "community": 0,
+      "norm_label": "runauthenticatedtest - autocannon runner"
+    },
+    {
+      "label": "Write Benchmark Test Invocation",
+      "file_type": "code",
+      "source_file": "load-tests/write-test.js",
+      "source_location": "3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "write_test_runtest",
+      "community": 0,
+      "norm_label": "write benchmark test invocation"
+    },
+    {
+      "label": "Read Benchmark Test Invocation",
+      "file_type": "code",
+      "source_file": "load-tests/read-test.js",
+      "source_location": "3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "read_test_runtest",
+      "community": 0,
+      "norm_label": "read benchmark test invocation"
+    },
+    {
+      "label": "Failover Benchmark Test Invocation",
+      "file_type": "code",
+      "source_file": "load-tests/failover-test.js",
+      "source_location": "17",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "failover_test_runtest",
+      "community": 0,
+      "norm_label": "failover benchmark test invocation"
+    },
+    {
+      "label": "DB Ping Benchmark Test Invocation",
+      "file_type": "code",
+      "source_file": "load-tests/db-ping-test.js",
+      "source_location": "3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "db_ping_test_runtest",
+      "community": 0,
+      "norm_label": "db ping benchmark test invocation"
+    },
+    {
+      "label": "Autocannon HTTP Load Instance",
+      "file_type": "code",
+      "source_file": "load-tests/runner.js",
+      "source_location": "21",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "runner_autocannon_instance",
+      "community": 0,
+      "norm_label": "autocannon http load instance"
+    },
+    {
+      "label": "JWT_TOKEN Environment Variable Fallback",
+      "file_type": "code",
+      "source_file": "load-tests/auth.js",
+      "source_location": "4",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auth_jwt_env_fallback",
+      "community": 2,
+      "norm_label": "jwt_token environment variable fallback"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "config_js",
+      "target": "load_tests_config_test_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "runner.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "runner_js",
+      "target": "config_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "auth.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "auth_js",
+      "target": "config_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "auth.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "auth_js",
+      "target": "load_tests_config_test_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "runner.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "runner_js",
+      "target": "auth_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "runner.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "runner_js",
+      "target": "load_tests_auth_gettoken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "runner.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "runner_js",
+      "target": "load_tests_runner_runauthenticatedtest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "write-test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "write_test_js",
+      "target": "runner_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "read-test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "read_test_js",
+      "target": "runner_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "failover-test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "failover_test_js",
+      "target": "runner_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "db-ping-test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "db_ping_test_js",
+      "target": "runner_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "write-test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "write_test_js",
+      "target": "load_tests_runner_runauthenticatedtest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "read-test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "read_test_js",
+      "target": "load_tests_runner_runauthenticatedtest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "failover-test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "failover_test_js",
+      "target": "load_tests_runner_runauthenticatedtest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "db-ping-test.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "db_ping_test_js",
+      "target": "load_tests_runner_runauthenticatedtest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "runner.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "load_tests_runner_runauthenticatedtest",
+      "target": "load_tests_auth_gettoken"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "auth.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "auth_js",
+      "target": "load_tests_auth_gettoken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/runner.js",
+      "source_location": "23",
+      "weight": 1.0,
+      "source": "runner_runauthenticatedtest",
+      "target": "config_api_base_url"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/auth.js",
+      "source_location": "9",
+      "weight": 1.0,
+      "source": "auth_gettoken",
+      "target": "config_api_base_url"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/auth.js",
+      "source_location": "15",
+      "weight": 1.0,
+      "source": "auth_gettoken",
+      "target": "config_test_user"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/runner.js",
+      "source_location": "8",
+      "weight": 1.0,
+      "source": "runner_runauthenticatedtest",
+      "target": "config_default_connections"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/runner.js",
+      "source_location": "9",
+      "weight": 1.0,
+      "source": "runner_runauthenticatedtest",
+      "target": "config_default_duration"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/runner.js",
+      "source_location": "13",
+      "weight": 1.0,
+      "source": "runner_runauthenticatedtest",
+      "target": "auth_gettoken"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/auth.js",
+      "source_location": "4",
+      "weight": 1.0,
+      "source": "auth_gettoken",
+      "target": "auth_jwt_env_fallback"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/runner.js",
+      "source_location": "21",
+      "weight": 1.0,
+      "source": "runner_runauthenticatedtest",
+      "target": "runner_autocannon_instance"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/write-test.js",
+      "source_location": "3",
+      "weight": 1.0,
+      "source": "write_test_runtest",
+      "target": "runner_runauthenticatedtest"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/read-test.js",
+      "source_location": "3",
+      "weight": 1.0,
+      "source": "read_test_runtest",
+      "target": "runner_runauthenticatedtest"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/failover-test.js",
+      "source_location": "17",
+      "weight": 1.0,
+      "source": "failover_test_runtest",
+      "target": "runner_runauthenticatedtest"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/db-ping-test.js",
+      "source_location": "3",
+      "weight": 1.0,
+      "source": "db_ping_test_runtest",
+      "target": "runner_runauthenticatedtest"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "load-tests/runner.js",
+      "source_location": null,
+      "weight": 0.75,
+      "source": "runner_runauthenticatedtest",
+      "target": "auth_jwt_env_fallback"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "load-tests/write-test.js",
+      "source_location": null,
+      "weight": 0.75,
+      "source": "write_test_runtest",
+      "target": "read_test_runtest"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "load-tests/read-test.js",
+      "source_location": null,
+      "weight": 0.85,
+      "source": "read_test_runtest",
+      "target": "failover_test_runtest"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "load-tests/db-ping-test.js",
+      "source_location": null,
+      "weight": 0.65,
+      "source": "db_ping_test_runtest",
+      "target": "read_test_runtest"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "load-tests/failover-test.js",
+      "source_location": null,
+      "weight": 0.85,
+      "source": "failover_test_runtest",
+      "target": "runner_autocannon_instance"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "benchmark_test_execution_flow",
+      "label": "Benchmark Test Execution Flow: Test \u2192 Runner \u2192 Auth \u2192 Autocannon",
+      "nodes": [
+        "write_test_runtest",
+        "read_test_runtest",
+        "failover_test_runtest",
+        "db_ping_test_runtest",
+        "runner_runauthenticatedtest",
+        "auth_gettoken"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/runner.js"
+    },
+    {
+      "id": "config_shared_constants_flow",
+      "label": "Shared Configuration Constants Used by Auth and Runner",
+      "nodes": [
+        "config_api_base_url",
+        "config_test_user",
+        "auth_gettoken",
+        "runner_runauthenticatedtest"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/config.js"
+    },
+    {
+      "id": "autocannon_load_test_pattern",
+      "label": "Autocannon HTTP Load Test Pattern with Auth and Tracking",
+      "nodes": [
+        "runner_autocannon_instance",
+        "runner_runauthenticatedtest",
+        "auth_gettoken"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "load-tests/runner.js"
+    }
+  ],
+  "built_at_commit": "b29439986fe0c383c9523fa79de6e5dc4bc97547"
+}
